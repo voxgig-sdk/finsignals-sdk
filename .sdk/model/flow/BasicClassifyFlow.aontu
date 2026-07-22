@@ -1,0 +1,18 @@
+# BasicClassifyFlow
+
+main: kit: flow: BasicClassifyFlow:
+{
+  entity: "classify",
+  kind: "basic",
+  name: "BasicClassifyFlow",
+  step: [
+    {
+      input: {
+        ref: "classify_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicClassifyFlow"
+}

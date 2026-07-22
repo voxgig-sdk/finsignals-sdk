@@ -1,0 +1,1206 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "FinSignals API",
+    "description": "Reddit post financial sentiment classification.",
+    "version": "2.0.0",
+    "contact": {
+      "url": "https://finsignals.ai/contact/"
+    },
+    "x-logo": {
+      "url": "https://finsignals.ai/wp-content/uploads/2026/03/finsignals_logo.png"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.finsignals.ai",
+      "description": "FinSignals API (from finsignals.ai docs)"
+    }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "Health Check",
+        "operationId": "health_check_api_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/health": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "Health Check",
+        "operationId": "health_check_v1_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/classify": {
+      "post": {
+        "tags": [
+          "classify"
+        ],
+        "summary": "Classify Single",
+        "operationId": "classify_single_v1_classify_post",
+        "parameters": [
+          {
+            "name": "X-API-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SingleClassifyRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassifyResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/classify/batch": {
+      "post": {
+        "tags": [
+          "classify"
+        ],
+        "summary": "Classify Batch",
+        "operationId": "classify_batch_v1_classify_batch_post",
+        "parameters": [
+          {
+            "name": "X-API-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchClassifyRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassifyResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/usage": {
+      "get": {
+        "tags": [
+          "usage"
+        ],
+        "summary": "Get Usage",
+        "operationId": "get_usage_v1_usage_get",
+        "parameters": [
+          {
+            "name": "X-API-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/plan": {
+      "get": {
+        "tags": [
+          "usage"
+        ],
+        "summary": "Get Plan",
+        "operationId": "get_plan_v1_plan_get",
+        "parameters": [
+          {
+            "name": "X-API-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sector-rotation": {
+      "get": {
+        "tags": [
+          "sector-rotation"
+        ],
+        "summary": "Get Sector Rotation",
+        "description": "Retrieve the latest daily sector rotation analysis.\n\nReturns both the 1-year and 5-year outlooks, including sector/industry\nrotation data, AI-generated markdown summaries, and historical weekly\nsnapshots. Data is refreshed once per trading day just after midnight ET.\n\n**Cost:** 10 credits per request.",
+        "operationId": "get_sector_rotation_v1_sector_rotation_get",
+        "parameters": [
+          {
+            "name": "X-API-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RotationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/rotation/trigger": {
+      "post": {
+        "tags": [
+          "internal"
+        ],
+        "summary": "Trigger Rotation",
+        "description": "Trigger an immediate sector rotation calculation in the background.\n\nProtected by X-Internal-Token (same shared secret as all /internal/* endpoints).\nReturns 202 immediately; the full run (Alpaca + FMP + Claude) completes\nasynchronously and populates the cache when done.",
+        "operationId": "trigger_rotation_internal_rotation_trigger_post",
+        "parameters": [
+          {
+            "name": "x-internal-token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BatchClassifyRequest": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/RedditPostInput"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "title": "BatchClassifyRequest"
+      },
+      "ClassificationOutput": {
+        "properties": {
+          "sentiment": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Sentiment"
+          },
+          "quality": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Quality"
+          },
+          "directionality": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Directionality"
+          },
+          "post_type": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Post Type"
+          },
+          "relevance_score": {
+            "type": "number",
+            "title": "Relevance Score"
+          },
+          "author_confidence": {
+            "type": "number",
+            "title": "Author Confidence"
+          },
+          "sarcasm": {
+            "type": "boolean",
+            "title": "Sarcasm"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sentiment",
+          "quality",
+          "directionality",
+          "post_type",
+          "relevance_score",
+          "author_confidence",
+          "sarcasm"
+        ],
+        "title": "ClassificationOutput"
+      },
+      "ClassifyResponse": {
+        "properties": {
+          "model_version": {
+            "type": "string",
+            "title": "Model Version"
+          },
+          "request_id": {
+            "type": "string",
+            "title": "Request Id"
+          },
+          "credits_charged": {
+            "type": "number",
+            "title": "Credits Charged"
+          },
+          "endpoint_type": {
+            "type": "string",
+            "title": "Endpoint Type"
+          },
+          "endpoint_name": {
+            "type": "string",
+            "title": "Endpoint Name"
+          },
+          "outputs": {
+            "items": {
+              "$ref": "#/components/schemas/ClassificationOutput"
+            },
+            "type": "array",
+            "title": "Outputs"
+          }
+        },
+        "type": "object",
+        "required": [
+          "model_version",
+          "request_id",
+          "credits_charged",
+          "endpoint_type",
+          "endpoint_name",
+          "outputs"
+        ],
+        "title": "ClassifyResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "IndustryRow": {
+        "properties": {
+          "etf": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Etf"
+          },
+          "ret_1w": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 1W"
+          },
+          "ret_1m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 1M"
+          },
+          "ret_3m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 3M"
+          },
+          "ret_6m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 6M"
+          },
+          "ret_9m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 9M"
+          },
+          "ret_12m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 12M"
+          },
+          "rs_1m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rs 1M"
+          },
+          "rs_3m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rs 3M"
+          },
+          "rs_6m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rs 6M"
+          },
+          "rs_9m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rs 9M"
+          },
+          "rs_12m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rs 12M"
+          },
+          "mom_accel": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mom Accel"
+          },
+          "vol_ratio": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vol Ratio"
+          },
+          "pe": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pe"
+          },
+          "phase": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phase"
+          },
+          "confidence": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confidence"
+          },
+          "rotation_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rotation Score"
+          },
+          "adjustment": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Adjustment"
+          },
+          "parent_sector_etf": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Sector Etf"
+          },
+          "rs_vs_sector_1m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rs Vs Sector 1M"
+          },
+          "rs_vs_sector_3m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rs Vs Sector 3M"
+          },
+          "rs_vs_sector_6m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rs Vs Sector 6M"
+          },
+          "fmp_daily_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fmp Daily Pct"
+          }
+        },
+        "type": "object",
+        "title": "IndustryRow"
+      },
+      "RedditPostInput": {
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "maxLength": 20,
+            "title": "Ticker",
+            "default": ""
+          },
+          "company_name": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Company Name",
+            "default": ""
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 1000,
+            "title": "Title",
+            "default": ""
+          },
+          "body": {
+            "type": "string",
+            "maxLength": 40000,
+            "title": "Body",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "RedditPostInput"
+      },
+      "RotationPeriodData": {
+        "properties": {
+          "trading_date": {
+            "type": "string",
+            "title": "Trading Date"
+          },
+          "generated_at": {
+            "type": "string",
+            "title": "Generated At"
+          },
+          "sector_data": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/SectorRow"
+            },
+            "type": "object",
+            "title": "Sector Data"
+          },
+          "industry_data": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/IndustryRow"
+            },
+            "type": "object",
+            "title": "Industry Data"
+          },
+          "spy_metrics": {
+            "$ref": "#/components/schemas/SpyMetrics"
+          },
+          "summary_md": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Summary Md"
+          },
+          "weekly_snapshots": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Weekly Snapshots",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "trading_date",
+          "generated_at",
+          "sector_data",
+          "industry_data",
+          "spy_metrics"
+        ],
+        "title": "RotationPeriodData",
+        "description": "Data for one analysis period (1y or 5y)."
+      },
+      "RotationResponse": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "title": "Request Id"
+          },
+          "model_version": {
+            "type": "string",
+            "title": "Model Version"
+          },
+          "credits_charged": {
+            "type": "number",
+            "title": "Credits Charged"
+          },
+          "endpoint_type": {
+            "type": "string",
+            "title": "Endpoint Type"
+          },
+          "endpoint_name": {
+            "type": "string",
+            "title": "Endpoint Name"
+          },
+          "trading_date": {
+            "type": "string",
+            "title": "Trading Date"
+          },
+          "generated_at": {
+            "type": "string",
+            "title": "Generated At"
+          },
+          "outlook_1y": {
+            "$ref": "#/components/schemas/RotationPeriodData"
+          },
+          "outlook_5y": {
+            "$ref": "#/components/schemas/RotationPeriodData"
+          }
+        },
+        "type": "object",
+        "required": [
+          "request_id",
+          "model_version",
+          "credits_charged",
+          "endpoint_type",
+          "endpoint_name",
+          "trading_date",
+          "generated_at",
+          "outlook_1y",
+          "outlook_5y"
+        ],
+        "title": "RotationResponse"
+      },
+      "SectorRow": {
+        "properties": {
+          "etf": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Etf"
+          },
+          "ret_1w": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 1W"
+          },
+          "ret_1m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 1M"
+          },
+          "ret_3m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 3M"
+          },
+          "ret_6m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 6M"
+          },
+          "ret_9m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 9M"
+          },
+          "ret_12m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 12M"
+          },
+          "rs_1m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rs 1M"
+          },
+          "rs_3m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rs 3M"
+          },
+          "rs_6m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rs 6M"
+          },
+          "rs_9m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rs 9M"
+          },
+          "rs_12m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rs 12M"
+          },
+          "mom_accel": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mom Accel"
+          },
+          "vol_ratio": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vol Ratio"
+          },
+          "pe": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pe"
+          },
+          "phase": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phase"
+          },
+          "confidence": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confidence"
+          },
+          "rotation_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rotation Score"
+          },
+          "adjustment": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Adjustment"
+          }
+        },
+        "type": "object",
+        "title": "SectorRow"
+      },
+      "SingleClassifyRequest": {
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "maxLength": 20,
+            "title": "Ticker",
+            "default": ""
+          },
+          "company_name": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Company Name",
+            "default": ""
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 1000,
+            "title": "Title",
+            "default": ""
+          },
+          "body": {
+            "type": "string",
+            "maxLength": 40000,
+            "title": "Body",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "SingleClassifyRequest"
+      },
+      "SpyMetrics": {
+        "properties": {
+          "ret_1m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 1M"
+          },
+          "ret_3m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 3M"
+          },
+          "ret_6m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 6M"
+          },
+          "ret_9m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 9M"
+          },
+          "ret_12m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ret 12M"
+          }
+        },
+        "type": "object",
+        "title": "SpyMetrics"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+# Entity: classify
+
+main: kit: entity: classify: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "body"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "company_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "credits_charged"
+      req: true
+      type: "`$NUMBER`"
+    }
+    {
+      name: "endpoint_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "endpoint_type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "item"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "model_version"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "output"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "request_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "ticker"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "classify"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "x_api_key"
+                orig: "x_api_key"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/v1/classify"
+          parts: [
+            "v1"
+            "classify"
+          ]
+          select: {
+            exist: [
+              "x_api_key"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "x_api_key"
+                orig: "x_api_key"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/v1/classify/batch"
+          parts: [
+            "v1"
+            "classify"
+            "batch"
+          ]
+          select: {
+            "$action": "batch"
+            exist: [
+              "x_api_key"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

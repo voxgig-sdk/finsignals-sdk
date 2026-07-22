@@ -1,0 +1,74 @@
+# Entity: usage
+
+main: kit: entity: usage: {
+
+  alias: field: {}
+
+  name: "usage"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "x_api_key"
+                orig: "x_api_key"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/v1/plan"
+          parts: [
+            "v1"
+            "plan"
+          ]
+          select: {
+            exist: [
+              "x_api_key"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "x_api_key"
+                orig: "x_api_key"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/v1/usage"
+          parts: [
+            "v1"
+            "usage"
+          ]
+          select: {
+            exist: [
+              "x_api_key"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

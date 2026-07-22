@@ -1,0 +1,57 @@
+{
+  "existing": {
+    "rotation": {
+      "ROTATION00": {
+        "credits_charged": 90,
+        "endpoint_name": "s5b",
+        "endpoint_type": "s5c",
+        "generated_at": "s5d",
+        "model_version": "s5e",
+        "outlook_1y": {},
+        "outlook_5y": {},
+        "request_id": "REQUEST01",
+        "trading_date": "s62",
+        "id": "ROTATION00"
+      },
+      "ROTATION01": {
+        "credits_charged": 180,
+        "endpoint_name": "sb5",
+        "endpoint_type": "sb6",
+        "generated_at": "sb7",
+        "model_version": "sb8",
+        "outlook_1y": {},
+        "outlook_5y": {},
+        "request_id": "REQUEST01",
+        "trading_date": "sbc",
+        "id": "ROTATION01"
+      },
+      "ROTATION02": {
+        "credits_charged": 270,
+        "endpoint_name": "s10f",
+        "endpoint_type": "s110",
+        "generated_at": "s111",
+        "model_version": "s112",
+        "outlook_1y": {},
+        "outlook_5y": {},
+        "request_id": "REQUEST01",
+        "trading_date": "s116",
+        "id": "ROTATION02"
+      }
+    }
+  },
+  "new": {
+    "rotation": {
+      "rotation_ref01": {
+        "credits_charged": 360,
+        "endpoint_name": "s169",
+        "endpoint_type": "s16a",
+        "generated_at": "s16b",
+        "model_version": "s16c",
+        "outlook_1y": {},
+        "outlook_5y": {},
+        "request_id": "REQUEST01",
+        "trading_date": "s170"
+      }
+    }
+  }
+}

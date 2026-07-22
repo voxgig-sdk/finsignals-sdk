@@ -1,0 +1,98 @@
+# Typed models for the Finsignals SDK.
+#
+# GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
+# params (op.<name>.points[].args.params[]). Field/param types come from the
+# canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
+# @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
+
+from __future__ import annotations
+
+from typing import TypedDict, Any
+
+
+class ClassifyRequired(TypedDict):
+    credits_charged: float
+    endpoint_name: str
+    endpoint_type: str
+    item: list
+    model_version: str
+    output: list
+    request_id: str
+
+
+class Classify(ClassifyRequired, total=False):
+    body: str
+    company_name: str
+    ticker: str
+    title: str
+
+
+class ClassifyCreateDataRequired(TypedDict):
+    credits_charged: float
+    endpoint_name: str
+    endpoint_type: str
+    item: list
+    model_version: str
+    output: list
+    request_id: str
+
+
+class ClassifyCreateData(ClassifyCreateDataRequired, total=False):
+    body: str
+    company_name: str
+    ticker: str
+    title: str
+
+
+class Health(TypedDict):
+    pass
+
+
+class HealthLoadMatch(TypedDict):
+    pass
+
+
+class Internal(TypedDict):
+    pass
+
+
+class InternalCreateData(TypedDict):
+    pass
+
+
+class Rotation(TypedDict):
+    credits_charged: float
+    endpoint_name: str
+    endpoint_type: str
+    generated_at: str
+    model_version: str
+    outlook_1y: dict
+    outlook_5y: dict
+    request_id: str
+    trading_date: str
+
+
+class RotationLoadMatch(TypedDict, total=False):
+    credits_charged: float
+    endpoint_name: str
+    endpoint_type: str
+    generated_at: str
+    model_version: str
+    outlook_1y: dict
+    outlook_5y: dict
+    request_id: str
+    trading_date: str
+
+
+class Usage(TypedDict):
+    pass
+
+
+class UsageLoadMatch(TypedDict):
+    pass

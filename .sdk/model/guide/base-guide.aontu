@@ -1,0 +1,48 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 5
+  metrics: count: path: 8
+  metrics: count: method: 8
+
+  entity: classify: {
+    path: "/v1/classify": {
+      op: create: method: *POST
+    }
+    path: "/v1/classify/batch": {
+      action: "batch": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: health: {
+    path: "/api/health": {
+      op: load: method: *GET
+    }
+    path: "/v1/health": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: internal: {
+    path: "/internal/rotation/trigger": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: rotation: {
+    path: "/v1/sector-rotation": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: usage: {
+    path: "/v1/plan": {
+      op: load: method: *GET
+    }
+    path: "/v1/usage": {
+      op: load: method: *GET
+    }
+  }
+
+}

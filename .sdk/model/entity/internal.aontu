@@ -1,0 +1,48 @@
+# Entity: internal
+
+main: kit: entity: internal: {
+
+  alias: field: {}
+
+  name: "internal"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            header: [
+              {
+                example: ""
+                kind: "header"
+                name: "x_internal_token"
+                orig: "x_internal_token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/internal/rotation/trigger"
+          parts: [
+            "internal"
+            "rotation"
+            "trigger"
+          ]
+          select: {
+            exist: [
+              "x_internal_token"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

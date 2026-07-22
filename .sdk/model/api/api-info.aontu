@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        url: "https://finsignals.ai/contact/"
+      }
+      description: "Reddit post financial sentiment classification."
+      servers: [
+        {
+          description: "FinSignals API (from finsignals.ai docs)"
+          url: "https://api.finsignals.ai"
+        }
+      ]
+      summary: "Reddit post financial sentiment classification."
+      title: "FinSignals API"
+      version: "2.0.0"
+      website: "https://finsignals.ai"
+      "x-logo": {
+        url: "https://finsignals.ai/wp-content/uploads/2026/03/finsignals_logo.png"
+      }
+    }
+  }
+}
+

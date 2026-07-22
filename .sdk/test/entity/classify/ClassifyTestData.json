@@ -1,0 +1,65 @@
+{
+  "existing": {
+    "classify": {
+      "CLASSIFY00": {
+        "body": "s6e",
+        "company_name": "s6f",
+        "credits_charged": 112,
+        "endpoint_name": "s71",
+        "endpoint_type": "s72",
+        "item": [],
+        "model_version": "s74",
+        "output": [],
+        "request_id": "REQUEST01",
+        "ticker": "s77",
+        "title": "s78",
+        "id": "CLASSIFY00"
+      },
+      "CLASSIFY01": {
+        "body": "sdc",
+        "company_name": "sdd",
+        "credits_charged": 222,
+        "endpoint_name": "sdf",
+        "endpoint_type": "se0",
+        "item": [],
+        "model_version": "se2",
+        "output": [],
+        "request_id": "REQUEST01",
+        "ticker": "se5",
+        "title": "se6",
+        "id": "CLASSIFY01"
+      },
+      "CLASSIFY02": {
+        "body": "s14a",
+        "company_name": "s14b",
+        "credits_charged": 332,
+        "endpoint_name": "s14d",
+        "endpoint_type": "s14e",
+        "item": [],
+        "model_version": "s150",
+        "output": [],
+        "request_id": "REQUEST01",
+        "ticker": "s153",
+        "title": "s154",
+        "id": "CLASSIFY02"
+      }
+    }
+  },
+  "new": {
+    "classify": {
+      "classify_ref01": {
+        "body": "s1b8",
+        "company_name": "s1b9",
+        "credits_charged": 442,
+        "endpoint_name": "s1bb",
+        "endpoint_type": "s1bc",
+        "item": [],
+        "model_version": "s1be",
+        "output": [],
+        "request_id": "REQUEST01",
+        "ticker": "s1c1",
+        "title": "s1c2"
+      }
+    }
+  }
+}

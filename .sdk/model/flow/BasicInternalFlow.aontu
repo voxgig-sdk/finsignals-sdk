@@ -1,0 +1,18 @@
+# BasicInternalFlow
+
+main: kit: flow: BasicInternalFlow:
+{
+  entity: "internal",
+  kind: "basic",
+  name: "BasicInternalFlow",
+  step: [
+    {
+      input: {
+        ref: "internal_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicInternalFlow"
+}
