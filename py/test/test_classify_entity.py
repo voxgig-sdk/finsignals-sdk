@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from finsignals_sdk.utility.voxgig_struct import voxgig_struct as vs
 from finsignals_sdk import FinsignalsSDK
-from core import helpers
+from finsignals_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestClassifyEntity:
         classify_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.classify"), "classify_ref01"))
 
-        classify_ref01_data = helpers.to_map(classify_ref01_ent.create(classify_ref01_data, None))
+        classify_ref01_data = helpers.to_map(runner.entity_data(classify_ref01_ent.create(classify_ref01_data, None)))
         assert classify_ref01_data is not None
 
 

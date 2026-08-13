@@ -20,9 +20,9 @@ class Classify
     public float $credits_charged;
     public string $endpoint_name;
     public string $endpoint_type;
-    public array $item;
+    public array $items;
     public string $model_version;
-    public array $output;
+    public array $outputs;
     public string $request_id;
     public ?string $ticker = null;
     public ?string $title = null;
@@ -36,9 +36,9 @@ class ClassifyCreateData
     public float $credits_charged;
     public string $endpoint_name;
     public string $endpoint_type;
-    public array $item;
+    public array $items;
     public string $model_version;
-    public array $output;
+    public array $outputs;
     public string $request_id;
     public ?string $ticker = null;
     public ?string $title = null;

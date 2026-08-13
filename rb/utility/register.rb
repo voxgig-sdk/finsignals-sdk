@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ FinsignalsUtility.registrar = ->(u) {
   u.prepare_params = FinsignalsUtilities::PrepareParams
   u.prepare_path = FinsignalsUtilities::PreparePath
   u.prepare_query = FinsignalsUtilities::PrepareQuery
+  u.graphql_body = FinsignalsUtilities::GraphqlBody
+  u.graphql_errors = FinsignalsUtilities::GraphqlErrors
   u.result_basic = FinsignalsUtilities::ResultBasic
   u.result_body = FinsignalsUtilities::ResultBody
   u.result_headers = FinsignalsUtilities::ResultHeaders

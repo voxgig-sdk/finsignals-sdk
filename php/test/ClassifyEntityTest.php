@@ -44,7 +44,7 @@ class ClassifyEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.classify"), "classify_ref01"));
 
         $classify_ref01_data_result = $classify_ref01_ent->create($classify_ref01_data, null);
-        $classify_ref01_data = Helpers::to_map($classify_ref01_data_result);
+        $classify_ref01_data = Helpers::to_map(is_object($classify_ref01_data_result) && method_exists($classify_ref01_data_result, 'data_get') ? $classify_ref01_data_result->data_get() : $classify_ref01_data_result);
         $this->assertNotNull($classify_ref01_data);
 
     }

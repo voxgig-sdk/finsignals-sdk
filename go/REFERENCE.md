@@ -119,9 +119,9 @@ fmt.Println(classify.GetName()) // "classify"
 | `credits_charged` | `float64` | Yes |  |
 | `endpoint_name` | `string` | Yes |  |
 | `endpoint_type` | `string` | Yes |  |
-| `item` | `[]any` | Yes |  |
+| `items` | `[]any` | Yes |  |
 | `model_version` | `string` | Yes |  |
-| `output` | `[]any` | Yes |  |
+| `outputs` | `[]any` | Yes |  |
 | `request_id` | `string` | Yes |  |
 | `ticker` | `string` | No |  |
 | `title` | `string` | No |  |
@@ -137,9 +137,9 @@ result, err := client.Classify(nil).Create(map[string]any{
     "credits_charged": 1,
     "endpoint_name": "example_endpoint_name",
     "endpoint_type": "example_endpoint_type",
-    "item": []any{},
+    "items": []any{},
     "model_version": "example_model_version",
-    "output": []any{},
+    "outputs": []any{},
     "request_id": "example_request_id",
 }, nil)
 if err != nil {

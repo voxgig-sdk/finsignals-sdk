@@ -11,9 +11,9 @@ export interface Classify {
   credits_charged: number
   endpoint_name: string
   endpoint_type: string
-  item: any[]
+  items: any[]
   model_version: string
-  output: any[]
+  outputs: any[]
   request_id: string
   ticker?: string
   title?: string
@@ -25,12 +25,18 @@ export interface ClassifyCreateData {
   credits_charged: number
   endpoint_name: string
   endpoint_type: string
-  item: any[]
+  items: any[]
   model_version: string
-  output: any[]
+  outputs: any[]
   request_id: string
   ticker?: string
   title?: string
+
+  // Selects a custom action instead of the plain create:
+  //   'batch'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Health {

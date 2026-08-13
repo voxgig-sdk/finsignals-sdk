@@ -114,9 +114,9 @@ classify = client.Classify
 | `credits_charged` | `Float` | Yes |  |
 | `endpoint_name` | `String` | Yes |  |
 | `endpoint_type` | `String` | Yes |  |
-| `item` | `Array` | Yes |  |
+| `items` | `Array` | Yes |  |
 | `model_version` | `String` | Yes |  |
-| `output` | `Array` | Yes |  |
+| `outputs` | `Array` | Yes |  |
 | `request_id` | `String` | Yes |  |
 | `ticker` | `String` | No |  |
 | `title` | `String` | No |  |
@@ -132,9 +132,9 @@ result = client.Classify.create({
   "credits_charged" => 1, # Float
   "endpoint_name" => "example_endpoint_name", # String
   "endpoint_type" => "example_endpoint_type", # String
-  "item" => [], # Array
+  "items" => [], # Array
   "model_version" => "example_model_version", # String
-  "output" => [], # Array
+  "outputs" => [], # Array
   "request_id" => "example_request_id", # String
 })
 ```

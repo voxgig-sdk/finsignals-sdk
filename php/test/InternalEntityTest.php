@@ -44,7 +44,7 @@ class InternalEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.internal"), "internal_ref01"));
 
         $internal_ref01_data_result = $internal_ref01_ent->create($internal_ref01_data, null);
-        $internal_ref01_data = Helpers::to_map($internal_ref01_data_result);
+        $internal_ref01_data = Helpers::to_map(is_object($internal_ref01_data_result) && method_exists($internal_ref01_data_result, 'data_get') ? $internal_ref01_data_result->data_get() : $internal_ref01_data_result);
         $this->assertNotNull($internal_ref01_data);
 
     }

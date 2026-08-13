@@ -41,7 +41,7 @@ describe("InternalEntity", function()
 
     local internal_ref01_data_result, err = internal_ref01_ent:create(internal_ref01_data, nil)
     assert.is_nil(err)
-    internal_ref01_data = helpers.to_map(internal_ref01_data_result)
+    internal_ref01_data = helpers.to_map(type(internal_ref01_data_result) == 'table' and internal_ref01_data_result.data_get and internal_ref01_data_result:data_get() or internal_ref01_data_result)
     assert.is_not_nil(internal_ref01_data)
 
   end)

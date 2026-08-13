@@ -169,12 +169,32 @@ const classify = client.Classify()
 | `credits_charged` | `number` | Yes |  |
 | `endpoint_name` | `string` | Yes |  |
 | `endpoint_type` | `string` | Yes |  |
-| `item` | `any[]` | Yes |  |
+| `items` | `any[]` | Yes |  |
 | `model_version` | `string` | Yes |  |
-| `output` | `any[]` | Yes |  |
+| `outputs` | `any[]` | Yes |  |
 | `request_id` | `string` | Yes |  |
 | `ticker` | `string` | No |  |
 | `title` | `string` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `batch` | `/v1/classify/batch` | `client.Classify().create({ $action: 'batch', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Classify record — check the API definition for its shape.
+
+```ts
+const result = await client.Classify().create({
+  $action: 'batch',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -187,9 +207,9 @@ const result = await client.Classify().create({
   credits_charged: 1,
   endpoint_name: 'example_endpoint_name',
   endpoint_type: 'example_endpoint_type',
-  item: [],
+  items: [],
   model_version: 'example_model_version',
-  output: [],
+  outputs: [],
   request_id: 'example_request_id',
 })
 ```

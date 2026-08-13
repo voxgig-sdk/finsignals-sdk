@@ -34,8 +34,8 @@ $client = new FinsignalsSDK();
 ### 4. Create, update, and remove
 
 ```php
-// create() returns the bare created Classify record.
-$created = $client->Classify()->create(["credits_charged" => 1, "endpoint_name" => "example_endpoint_name", "endpoint_type" => "example_endpoint_type", "item" => [], "model_version" => "example_model_version", "output" => [], "request_id" => "example_request_id"]);
+// create() returns the ENTITY — call data_get() for the created Classify record.
+$created = $client->Classify()->create(["credits_charged" => 1, "endpoint_name" => "example_endpoint_name", "endpoint_type" => "example_endpoint_type", "items" => [], "model_version" => "example_model_version", "outputs" => [], "request_id" => "example_request_id"]);
 
 ```
 
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = FinsignalsSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $health = $client->Health()->load();
 print_r($health);
 ```
@@ -223,7 +224,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -250,9 +251,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `credits_charged` |  |
 | `endpoint_name` |  |
 | `endpoint_type` |  |
-| `item` |  |
+| `items` |  |
 | `model_version` |  |
-| `output` |  |
+| `outputs` |  |
 | `request_id` |  |
 | `ticker` |  |
 | `title` |  |
@@ -330,9 +331,9 @@ Create an instance: `$classify = $client->Classify();`
 | `credits_charged` | `float` |  |
 | `endpoint_name` | `string` |  |
 | `endpoint_type` | `string` |  |
-| `item` | `array` |  |
+| `items` | `array` |  |
 | `model_version` | `string` |  |
-| `output` | `array` |  |
+| `outputs` | `array` |  |
 | `request_id` | `string` |  |
 | `ticker` | `string` |  |
 | `title` | `string` |  |
@@ -344,9 +345,9 @@ $classify = $client->Classify()->create([
     "credits_charged" => null, // float
     "endpoint_name" => null, // string
     "endpoint_type" => null, // string
-    "item" => null, // array
+    "items" => null, // array
     "model_version" => null, // string
-    "output" => null, // array
+    "outputs" => null, // array
     "request_id" => null, // string
 ]);
 ```
@@ -365,7 +366,7 @@ Create an instance: `$health = $client->Health();`
 #### Example: Load
 
 ```php
-// load() returns the bare Health record (throws on error).
+// load() returns the ENTITY — call data_get() for the Health record (throws on error).
 $health = $client->Health()->load();
 ```
 
@@ -415,7 +416,7 @@ Create an instance: `$rotation = $client->Rotation();`
 #### Example: Load
 
 ```php
-// load() returns the bare Rotation record (throws on error).
+// load() returns the ENTITY — call data_get() for the Rotation record (throws on error).
 $rotation = $client->Rotation()->load();
 ```
 
@@ -433,7 +434,7 @@ Create an instance: `$usage = $client->Usage();`
 #### Example: Load
 
 ```php
-// load() returns the bare Usage record (throws on error).
+// load() returns the ENTITY — call data_get() for the Usage record (throws on error).
 $usage = $client->Usage()->load();
 ```
 

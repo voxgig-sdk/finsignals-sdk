@@ -111,9 +111,9 @@ local classify = client:Classify(nil)
 | `credits_charged` | `number` | Yes |  |
 | `endpoint_name` | `string` | Yes |  |
 | `endpoint_type` | `string` | Yes |  |
-| `item` | `table` | Yes |  |
+| `items` | `table` | Yes |  |
 | `model_version` | `string` | Yes |  |
-| `output` | `table` | Yes |  |
+| `outputs` | `table` | Yes |  |
 | `request_id` | `string` | Yes |  |
 | `ticker` | `string` | No |  |
 | `title` | `string` | No |  |
@@ -129,9 +129,9 @@ local result, err = client:Classify():create({
   credits_charged = --[[ number ]],
   endpoint_name = --[[ string ]],
   endpoint_type = --[[ string ]],
-  item = --[[ table ]],
+  items = --[[ table ]],
   model_version = --[[ string ]],
-  output = --[[ table ]],
+  outputs = --[[ table ]],
   request_id = --[[ string ]],
 })
 ```

@@ -27,9 +27,9 @@ const classify = await client.Classify().create({
   credits_charged: 1,
   endpoint_name: 'example',
   endpoint_type: 'example',
-  item: [],
+  items: [],
   model_version: 'example',
-  output: [],
+  outputs: [],
   request_id: 'example',
 })
 ```
@@ -46,9 +46,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = FinsignalsSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = FinsignalsSDK.test({
+  entity: {
+    health: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const health = await client.Health().load()
-// health is a bare Health populated with mock data
+// health is the Health entity, populated with mock data
+// — call health.data() for the record itself
 console.log(health)
 ```
 
@@ -331,6 +340,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://finsignals.ai/contact/](https://finsignals.ai/contact/)
 

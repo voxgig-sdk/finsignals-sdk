@@ -62,7 +62,7 @@ describe('ClassifyEntity', async () => {
     const classify_ref01_ent = client.Classify()
     let classify_ref01_data = setup.data.new.classify['classify_ref01']
 
-    classify_ref01_data = await classify_ref01_ent.create(classify_ref01_data)
+    classify_ref01_data = (await classify_ref01_ent.create(classify_ref01_data)).data()
     assert(null != classify_ref01_data)
 
 

@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Finsignals',
   }
 
 
@@ -103,7 +103,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "item",
+          "name": "items",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 5
@@ -117,7 +117,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "output",
+          "name": "outputs",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 7
@@ -164,6 +164,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/v1/classify",
               "parts": [
@@ -195,6 +196,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/v1/classify/batch",
               "parts": [
@@ -233,6 +235,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api/health",
               "parts": [
@@ -249,6 +252,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/v1/health",
               "parts": [
@@ -293,6 +297,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "POST",
               "orig": "/internal/rotation/trigger",
               "parts": [
@@ -405,6 +410,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/v1/sector-rotation",
               "parts": [
@@ -452,6 +458,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/v1/plan",
               "parts": [
@@ -483,6 +490,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/v1/usage",
               "parts": [

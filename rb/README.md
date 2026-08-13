@@ -33,8 +33,8 @@ client = FinsignalsSDK.new
 ### 4. Create, update, and remove
 
 ```ruby
-# create returns the bare created Classify record.
-created = client.Classify.create({ "credits_charged" => 1, "endpoint_name" => "example_endpoint_name", "endpoint_type" => "example_endpoint_type", "item" => [], "model_version" => "example_model_version", "output" => [], "request_id" => "example_request_id" })
+# create returns the ENTITY — call data_get for the created Classify record.
+created = client.Classify.create({ "credits_charged" => 1, "endpoint_name" => "example_endpoint_name", "endpoint_type" => "example_endpoint_type", "items" => [], "model_version" => "example_model_version", "outputs" => [], "request_id" => "example_request_id" })
 
 ```
 
@@ -113,7 +113,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = FinsignalsSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 health = client.Health.load()
 puts health
 ```
@@ -240,9 +241,9 @@ returns a result `Hash` with these keys:
 | `credits_charged` |  |
 | `endpoint_name` |  |
 | `endpoint_type` |  |
-| `item` |  |
+| `items` |  |
 | `model_version` |  |
-| `output` |  |
+| `outputs` |  |
 | `request_id` |  |
 | `ticker` |  |
 | `title` |  |
@@ -320,9 +321,9 @@ Create an instance: `classify = client.Classify`
 | `credits_charged` | `Float` |  |
 | `endpoint_name` | `String` |  |
 | `endpoint_type` | `String` |  |
-| `item` | `Array` |  |
+| `items` | `Array` |  |
 | `model_version` | `String` |  |
-| `output` | `Array` |  |
+| `outputs` | `Array` |  |
 | `request_id` | `String` |  |
 | `ticker` | `String` |  |
 | `title` | `String` |  |
@@ -334,9 +335,9 @@ classify = client.Classify.create({
   "credits_charged" => 1, # Float
   "endpoint_name" => "example_endpoint_name", # String
   "endpoint_type" => "example_endpoint_type", # String
-  "item" => [], # Array
+  "items" => [], # Array
   "model_version" => "example_model_version", # String
-  "output" => [], # Array
+  "outputs" => [], # Array
   "request_id" => "example_request_id", # String
 })
 ```
@@ -355,7 +356,7 @@ Create an instance: `health = client.Health`
 #### Example: Load
 
 ```ruby
-# load returns the bare Health record (raises on error).
+# load returns the ENTITY — call data_get for the Health record (raises on error).
 health = client.Health.load()
 ```
 
@@ -405,7 +406,7 @@ Create an instance: `rotation = client.Rotation`
 #### Example: Load
 
 ```ruby
-# load returns the bare Rotation record (raises on error).
+# load returns the ENTITY — call data_get for the Rotation record (raises on error).
 rotation = client.Rotation.load()
 ```
 
@@ -423,7 +424,7 @@ Create an instance: `usage = client.Usage`
 #### Example: Load
 
 ```ruby
-# load returns the bare Usage record (raises on error).
+# load returns the ENTITY — call data_get for the Usage record (raises on error).
 usage = client.Usage.load()
 ```
 

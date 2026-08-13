@@ -37,7 +37,7 @@ local client = sdk.new()
 
 ```lua
 -- Create
-local created, err = client:Classify():create({ credits_charged = 1, endpoint_name = "example_endpoint_name", endpoint_type = "example_endpoint_type", item = {}, model_version = "example_model_version", output = {}, request_id = "example_request_id" })
+local created, err = client:Classify():create({ credits_charged = 1, endpoint_name = "example_endpoint_name", endpoint_type = "example_endpoint_type", items = {}, model_version = "example_model_version", outputs = {}, request_id = "example_request_id" })
 if err then error(err) end
 
 ```
@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local classify, err = client:Classify():load()
+    local health, err = client:Health():load()
     if err then error(err) end
-    -- classify is the loaded record
+    -- health is the loaded record
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -236,9 +236,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `credits_charged` |  |
 | `endpoint_name` |  |
 | `endpoint_type` |  |
-| `item` |  |
+| `items` |  |
 | `model_version` |  |
-| `output` |  |
+| `outputs` |  |
 | `request_id` |  |
 | `ticker` |  |
 | `title` |  |
@@ -316,9 +316,9 @@ Create an instance: `local classify = client:Classify(nil)`
 | `credits_charged` | `number` |  |
 | `endpoint_name` | `string` |  |
 | `endpoint_type` | `string` |  |
-| `item` | `table` |  |
+| `items` | `table` |  |
 | `model_version` | `string` |  |
-| `output` | `table` |  |
+| `outputs` | `table` |  |
 | `request_id` | `string` |  |
 | `ticker` | `string` |  |
 | `title` | `string` |  |
@@ -330,9 +330,9 @@ local classify, err = client:Classify():create({
   credits_charged = 1, -- number
   endpoint_name = "example_endpoint_name", -- string
   endpoint_type = "example_endpoint_type", -- string
-  item = {}, -- table
+  items = {}, -- table
   model_version = "example_model_version", -- string
-  output = {}, -- table
+  outputs = {}, -- table
   request_id = "example_request_id", -- string
 })
 ```

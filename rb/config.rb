@@ -66,7 +66,7 @@ module FinsignalsConfig
             },
             {
               "active" => true,
-              "name" => "item",
+              "name" => "items",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 5,
@@ -80,7 +80,7 @@ module FinsignalsConfig
             },
             {
               "active" => true,
-              "name" => "output",
+              "name" => "outputs",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 7,
@@ -127,6 +127,7 @@ module FinsignalsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/v1/classify",
                   "parts" => [
@@ -158,6 +159,7 @@ module FinsignalsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/v1/classify/batch",
                   "parts" => [
@@ -196,6 +198,7 @@ module FinsignalsConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/health",
                   "parts" => [
@@ -212,6 +215,7 @@ module FinsignalsConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/health",
                   "parts" => [
@@ -256,6 +260,7 @@ module FinsignalsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/internal/rotation/trigger",
                   "parts" => [
@@ -368,6 +373,7 @@ module FinsignalsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/sector-rotation",
                   "parts" => [
@@ -415,6 +421,7 @@ module FinsignalsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/plan",
                   "parts" => [
@@ -446,6 +453,7 @@ module FinsignalsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/usage",
                   "parts" => [

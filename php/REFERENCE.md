@@ -113,9 +113,9 @@ $classify = $client->Classify();
 | `credits_charged` | `float` | Yes |  |
 | `endpoint_name` | `string` | Yes |  |
 | `endpoint_type` | `string` | Yes |  |
-| `item` | `array` | Yes |  |
+| `items` | `array` | Yes |  |
 | `model_version` | `string` | Yes |  |
-| `output` | `array` | Yes |  |
+| `outputs` | `array` | Yes |  |
 | `request_id` | `string` | Yes |  |
 | `ticker` | `string` | No |  |
 | `title` | `string` | No |  |
@@ -131,9 +131,9 @@ $result = $client->Classify()->create([
   "credits_charged" => null, // float
   "endpoint_name" => null, // string
   "endpoint_type" => null, // string
-  "item" => null, // array
+  "items" => null, // array
   "model_version" => null, // string
-  "output" => null, // array
+  "outputs" => null, // array
   "request_id" => null, // string
 ]);
 ```

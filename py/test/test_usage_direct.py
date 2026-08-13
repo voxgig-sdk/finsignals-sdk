@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from finsignals_sdk.utility.voxgig_struct import voxgig_struct as vs
 from finsignals_sdk import FinsignalsSDK
-from core import helpers
+from finsignals_sdk.core import helpers
 from test import runner
 
 

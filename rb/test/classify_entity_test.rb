@@ -37,7 +37,7 @@ class ClassifyEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.classify"), "classify_ref01"))
 
     classify_ref01_data_result = classify_ref01_ent.create(classify_ref01_data, nil)
-    classify_ref01_data = Helpers.to_map(classify_ref01_data_result)
+    classify_ref01_data = Helpers.to_map(classify_ref01_data_result.respond_to?(:data_get) ? classify_ref01_data_result.data_get : classify_ref01_data_result)
     assert !classify_ref01_data.nil?
 
   end

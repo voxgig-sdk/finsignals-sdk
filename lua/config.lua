@@ -65,7 +65,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "item",
+            ["name"] = "items",
             ["req"] = true,
             ["type"] = "`$ARRAY`",
             ["index$"] = 5,
@@ -79,7 +79,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "output",
+            ["name"] = "outputs",
             ["req"] = true,
             ["type"] = "`$ARRAY`",
             ["index$"] = 7,
@@ -126,6 +126,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/v1/classify",
                 ["parts"] = {
@@ -157,6 +158,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/v1/classify/batch",
                 ["parts"] = {
@@ -195,6 +197,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/health",
                 ["parts"] = {
@@ -211,6 +214,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v1/health",
                 ["parts"] = {
@@ -255,6 +259,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/internal/rotation/trigger",
                 ["parts"] = {
@@ -367,6 +372,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v1/sector-rotation",
                 ["parts"] = {
@@ -414,6 +420,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v1/plan",
                 ["parts"] = {
@@ -445,6 +452,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v1/usage",
                 ["parts"] = {

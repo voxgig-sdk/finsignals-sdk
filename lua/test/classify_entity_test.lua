@@ -41,7 +41,7 @@ describe("ClassifyEntity", function()
 
     local classify_ref01_data_result, err = classify_ref01_ent:create(classify_ref01_data, nil)
     assert.is_nil(err)
-    classify_ref01_data = helpers.to_map(classify_ref01_data_result)
+    classify_ref01_data = helpers.to_map(type(classify_ref01_data_result) == 'table' and classify_ref01_data_result.data_get and classify_ref01_data_result:data_get() or classify_ref01_data_result)
     assert.is_not_nil(classify_ref01_data)
 
   end)

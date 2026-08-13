@@ -16,11 +16,11 @@
 import pytest
 
 from finsignals_sdk import FinsignalsSDK
-from core.error import FinsignalsError
-from core.result import FinsignalsResult
-from core.response import FinsignalsResponse
-from core.spec import FinsignalsSpec
-from feature.base_feature import FinsignalsBaseFeature
+from finsignals_sdk.core.error import FinsignalsError
+from finsignals_sdk.core.result import FinsignalsResult
+from finsignals_sdk.core.response import FinsignalsResponse
+from finsignals_sdk.core.spec import FinsignalsSpec
+from finsignals_sdk.feature.base_feature import FinsignalsBaseFeature
 
 
 def _client():

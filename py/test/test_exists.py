@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Finsignals SDK exists test
 
 import pytest
 from finsignals_sdk import FinsignalsSDK

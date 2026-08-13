@@ -37,7 +37,7 @@ class InternalEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.internal"), "internal_ref01"))
 
     internal_ref01_data_result = internal_ref01_ent.create(internal_ref01_data, nil)
-    internal_ref01_data = Helpers.to_map(internal_ref01_data_result)
+    internal_ref01_data = Helpers.to_map(internal_ref01_data_result.respond_to?(:data_get) ? internal_ref01_data_result.data_get : internal_ref01_data_result)
     assert !internal_ref01_data.nil?
 
   end

@@ -71,7 +71,7 @@ class FinsignalsConfig
             ],
             [
               'active' => true,
-              'name' => 'item',
+              'name' => 'items',
               'req' => true,
               'type' => '`$ARRAY`',
               'index$' => 5,
@@ -85,7 +85,7 @@ class FinsignalsConfig
             ],
             [
               'active' => true,
-              'name' => 'output',
+              'name' => 'outputs',
               'req' => true,
               'type' => '`$ARRAY`',
               'index$' => 7,
@@ -132,6 +132,7 @@ class FinsignalsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/v1/classify',
                   'parts' => [
@@ -163,6 +164,7 @@ class FinsignalsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/v1/classify/batch',
                   'parts' => [
@@ -201,6 +203,7 @@ class FinsignalsConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/health',
                   'parts' => [
@@ -217,6 +220,7 @@ class FinsignalsConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/health',
                   'parts' => [
@@ -261,6 +265,7 @@ class FinsignalsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/internal/rotation/trigger',
                   'parts' => [
@@ -373,6 +378,7 @@ class FinsignalsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/sector-rotation',
                   'parts' => [
@@ -420,6 +426,7 @@ class FinsignalsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/plan',
                   'parts' => [
@@ -451,6 +458,7 @@ class FinsignalsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/usage',
                   'parts' => [

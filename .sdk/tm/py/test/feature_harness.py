@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import FinsignalsControl
-from core.error import FinsignalsError
-from core.result import FinsignalsResult
-from core.spec import FinsignalsSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import FinsignalsControl
+from projectname_sdk.core.error import FinsignalsError
+from projectname_sdk.core.result import FinsignalsResult
+from projectname_sdk.core.spec import FinsignalsSpec
 
 
 # True when this SDK was generated with the named feature.

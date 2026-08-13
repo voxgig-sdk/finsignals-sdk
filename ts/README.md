@@ -36,14 +36,14 @@ const client = new FinsignalsSDK()
 ### 4. Create, update, and remove
 
 ```ts
-// Create — returns the created Classify
+// Create — returns the created Classify ENTITY (.data() for the record)
 const created = await client.Classify().create({
   credits_charged: 1,
   endpoint_name: 'example_endpoint_name',
   endpoint_type: 'example_endpoint_type',
-  item: [],
+  items: [],
   model_version: 'example_model_version',
-  output: [],
+  outputs: [],
   request_id: 'example_request_id',
 })
 
@@ -124,7 +124,8 @@ Create a mock client for unit testing — no server required:
 const client = FinsignalsSDK.test()
 
 const health = await client.Health().load()
-// health is a bare entity populated with mock response data
+// health is the entity, populated with mock response data
+// — call health.data() for the record itself
 console.log(health)
 ```
 
@@ -297,9 +298,9 @@ The `prepare()` method returns:
 | `credits_charged` |  |
 | `endpoint_name` |  |
 | `endpoint_type` |  |
-| `item` |  |
+| `items` |  |
 | `model_version` |  |
-| `output` |  |
+| `outputs` |  |
 | `request_id` |  |
 | `ticker` |  |
 | `title` |  |
@@ -377,9 +378,9 @@ Create an instance: `const classify = client.Classify()`
 | `credits_charged` | `number` |  |
 | `endpoint_name` | `string` |  |
 | `endpoint_type` | `string` |  |
-| `item` | `any[]` |  |
+| `items` | `any[]` |  |
 | `model_version` | `string` |  |
-| `output` | `any[]` |  |
+| `outputs` | `any[]` |  |
 | `request_id` | `string` |  |
 | `ticker` | `string` |  |
 | `title` | `string` |  |
@@ -391,9 +392,9 @@ const classify = await client.Classify().create({
   credits_charged: 1,
   endpoint_name: 'example_endpoint_name',
   endpoint_type: 'example_endpoint_type',
-  item: [],
+  items: [],
   model_version: 'example_model_version',
-  output: [],
+  outputs: [],
   request_id: 'example_request_id',
 })
 ```

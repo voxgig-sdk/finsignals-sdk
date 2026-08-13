@@ -62,7 +62,7 @@ describe('RotationEntity', async () => {
     // LOAD
     const rotation_ref01_ent = client.Rotation()
     const rotation_ref01_match_dt0: any = {}
-    const rotation_ref01_data_dt0 = await rotation_ref01_ent.load(rotation_ref01_match_dt0)
+    const rotation_ref01_data_dt0 = (await rotation_ref01_ent.load(rotation_ref01_match_dt0)).data()
     assert(null != rotation_ref01_data_dt0)
 
 

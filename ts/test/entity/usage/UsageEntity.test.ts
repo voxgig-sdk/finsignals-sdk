@@ -62,7 +62,7 @@ describe('UsageEntity', async () => {
     // LOAD
     const usage_ref01_ent = client.Usage()
     const usage_ref01_match_dt0: any = {}
-    const usage_ref01_data_dt0 = await usage_ref01_ent.load(usage_ref01_match_dt0)
+    const usage_ref01_data_dt0 = (await usage_ref01_ent.load(usage_ref01_match_dt0)).data()
     assert(null != usage_ref01_data_dt0)
 
 

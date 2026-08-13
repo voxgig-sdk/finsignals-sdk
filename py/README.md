@@ -39,8 +39,8 @@ client = FinsignalsSDK()
 ### 4. Create, update, and remove
 
 ```python
-# Create — returns the bare created record (a dict)
-created = client.Classify().create({"credits_charged": 1, "endpoint_name": "example_endpoint_name", "endpoint_type": "example_endpoint_type", "item": [], "model_version": "example_model_version", "output": [], "request_id": "example_request_id"})
+# Create — returns the ENTITY (call data_get() for the record)
+created = client.Classify().create({"credits_charged": 1, "endpoint_name": "example_endpoint_name", "endpoint_type": "example_endpoint_type", "items": [], "model_version": "example_model_version", "outputs": [], "request_id": "example_request_id"})
 
 ```
 
@@ -118,7 +118,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = FinsignalsSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 health = client.Health().load()
 # health contains the mock response record
 ```
@@ -219,7 +220,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -246,9 +247,9 @@ On error, `ok` is `False` and `err` contains the error value.
 | `credits_charged` |  |
 | `endpoint_name` |  |
 | `endpoint_type` |  |
-| `item` |  |
+| `items` |  |
 | `model_version` |  |
-| `output` |  |
+| `outputs` |  |
 | `request_id` |  |
 | `ticker` |  |
 | `title` |  |
@@ -326,9 +327,9 @@ Create an instance: `classify = client.Classify()`
 | `credits_charged` | `float` |  |
 | `endpoint_name` | `str` |  |
 | `endpoint_type` | `str` |  |
-| `item` | `list` |  |
+| `items` | `list` |  |
 | `model_version` | `str` |  |
-| `output` | `list` |  |
+| `outputs` | `list` |  |
 | `request_id` | `str` |  |
 | `ticker` | `str` |  |
 | `title` | `str` |  |
@@ -340,9 +341,9 @@ classify = client.Classify().create({
     "credits_charged": 1,  # float
     "endpoint_name": "example_endpoint_name",  # str
     "endpoint_type": "example_endpoint_type",  # str
-    "item": [],  # list
+    "items": [],  # list
     "model_version": "example_model_version",  # str
-    "output": [],  # list
+    "outputs": [],  # list
     "request_id": "example_request_id",  # str
 })
 ```

@@ -62,7 +62,7 @@ describe('InternalEntity', async () => {
     const internal_ref01_ent = client.Internal()
     let internal_ref01_data = setup.data.new.internal['internal_ref01']
 
-    internal_ref01_data = await internal_ref01_ent.create(internal_ref01_data)
+    internal_ref01_data = (await internal_ref01_ent.create(internal_ref01_data)).data()
     assert(null != internal_ref01_data)
 
 

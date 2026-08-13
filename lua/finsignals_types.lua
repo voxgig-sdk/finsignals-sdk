@@ -12,9 +12,9 @@
 ---@field credits_charged number
 ---@field endpoint_name string
 ---@field endpoint_type string
----@field item table
+---@field items table
 ---@field model_version string
----@field output table
+---@field outputs table
 ---@field request_id string
 ---@field ticker? string
 ---@field title? string
@@ -25,9 +25,9 @@
 ---@field credits_charged number
 ---@field endpoint_name string
 ---@field endpoint_type string
----@field item table
+---@field items table
 ---@field model_version string
----@field output table
+---@field outputs table
 ---@field request_id string
 ---@field ticker? string
 ---@field title? string
