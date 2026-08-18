@@ -40,7 +40,7 @@ class FinsignalsSDK
         $utility = new FinsignalsUtility();
         $this->_utility = $utility;
 
-        $config = FinsignalsConfig::make_config();
+        $config = FinsignalsConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

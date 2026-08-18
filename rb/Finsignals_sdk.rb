@@ -28,7 +28,7 @@ class FinsignalsSDK
     utility = FinsignalsUtility.new
     @_utility = utility
 
-    config = FinsignalsConfig.make_config
+    config = FinsignalsConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
