@@ -277,8 +277,8 @@ rotation = client.Rotation
 | `endpoint_type` | `String` | Yes |  |
 | `generated_at` | `String` | Yes |  |
 | `model_version` | `String` | Yes |  |
-| `outlook_1y` | `Hash` | Yes |  |
-| `outlook_5y` | `Hash` | Yes |  |
+| `outlook_1y` | `Hash` | Yes | Data for one analysis period (1y or 5y). |
+| `outlook_5y` | `Hash` | Yes | Data for one analysis period (1y or 5y). |
 | `request_id` | `String` | Yes |  |
 | `trading_date` | `String` | Yes |  |
 

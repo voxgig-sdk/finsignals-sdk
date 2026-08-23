@@ -289,8 +289,8 @@ API path: `/internal/rotation/trigger`
 | `endpoint_type` |  |
 | `generated_at` |  |
 | `model_version` |  |
-| `outlook_1y` |  |
-| `outlook_5y` |  |
+| `outlook_1y` | Data for one analysis period (1y or 5y). |
+| `outlook_5y` | Data for one analysis period (1y or 5y). |
 | `request_id` |  |
 | `trading_date` |  |
 
@@ -408,8 +408,8 @@ Create an instance: `$rotation = $client->Rotation();`
 | `endpoint_type` | `string` |  |
 | `generated_at` | `string` |  |
 | `model_version` | `string` |  |
-| `outlook_1y` | `array` |  |
-| `outlook_5y` | `array` |  |
+| `outlook_1y` | `array` | Data for one analysis period (1y or 5y). |
+| `outlook_5y` | `array` | Data for one analysis period (1y or 5y). |
 | `request_id` | `string` |  |
 | `trading_date` | `string` |  |
 

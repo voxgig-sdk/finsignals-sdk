@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Finsignals',
+        slug: "finsignals",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -311,11 +322,13 @@ class Config {
         {
           "name": "outlook_1y",
           "req": true,
+          "short": "Data for one analysis period (1y or 5y).",
           "type": "`$OBJECT`"
         },
         {
           "name": "outlook_5y",
           "req": true,
+          "short": "Data for one analysis period (1y or 5y).",
           "type": "`$OBJECT`"
         },
         {

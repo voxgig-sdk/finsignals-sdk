@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Finsignals",
+			"slug": "finsignals",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -280,11 +283,13 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "outlook_1y",
 						"req": true,
+						"short": "Data for one analysis period (1y or 5y).",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "outlook_5y",
 						"req": true,
+						"short": "Data for one analysis period (1y or 5y).",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{

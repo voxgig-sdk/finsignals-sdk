@@ -319,12 +319,14 @@
               "active": true,
               "name": "outlook_1y",
               "req": true,
+              "short": "Data for one analysis period (1y or 5y).",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "outlook_5y",
               "req": true,
+              "short": "Data for one analysis period (1y or 5y).",
               "type": "`$OBJECT`"
             },
             {

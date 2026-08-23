@@ -285,8 +285,8 @@ API path: `/internal/rotation/trigger`
 | `endpoint_type` |  |
 | `generated_at` |  |
 | `model_version` |  |
-| `outlook_1y` |  |
-| `outlook_5y` |  |
+| `outlook_1y` | Data for one analysis period (1y or 5y). |
+| `outlook_5y` | Data for one analysis period (1y or 5y). |
 | `request_id` |  |
 | `trading_date` |  |
 
@@ -403,8 +403,8 @@ Create an instance: `rotation = client.Rotation()`
 | `endpoint_type` | `str` |  |
 | `generated_at` | `str` |  |
 | `model_version` | `str` |  |
-| `outlook_1y` | `dict` |  |
-| `outlook_5y` | `dict` |  |
+| `outlook_1y` | `dict` | Data for one analysis period (1y or 5y). |
+| `outlook_5y` | `dict` | Data for one analysis period (1y or 5y). |
 | `request_id` | `str` |  |
 | `trading_date` | `str` |  |
 

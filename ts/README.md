@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -336,8 +336,8 @@ API path: `/internal/rotation/trigger`
 | `endpoint_type` |  |
 | `generated_at` |  |
 | `model_version` |  |
-| `outlook_1y` |  |
-| `outlook_5y` |  |
+| `outlook_1y` | Data for one analysis period (1y or 5y). |
+| `outlook_5y` | Data for one analysis period (1y or 5y). |
 | `request_id` |  |
 | `trading_date` |  |
 
@@ -454,8 +454,8 @@ Create an instance: `const rotation = client.Rotation()`
 | `endpoint_type` | `string` |  |
 | `generated_at` | `string` |  |
 | `model_version` | `string` |  |
-| `outlook_1y` | `Record<string, any>` |  |
-| `outlook_5y` | `Record<string, any>` |  |
+| `outlook_1y` | `Record<string, any>` | Data for one analysis period (1y or 5y). |
+| `outlook_5y` | `Record<string, any>` | Data for one analysis period (1y or 5y). |
 | `request_id` | `string` |  |
 | `trading_date` | `string` |  |
 

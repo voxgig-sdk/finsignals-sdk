@@ -279,8 +279,8 @@ fmt.Println(rotation.GetName()) // "rotation"
 | `endpoint_type` | `string` | Yes |  |
 | `generated_at` | `string` | Yes |  |
 | `model_version` | `string` | Yes |  |
-| `outlook_1y` | `map[string]any` | Yes |  |
-| `outlook_5y` | `map[string]any` | Yes |  |
+| `outlook_1y` | `map[string]any` | Yes | Data for one analysis period (1y or 5y). |
+| `outlook_5y` | `map[string]any` | Yes | Data for one analysis period (1y or 5y). |
 | `request_id` | `string` | Yes |  |
 | `trading_date` | `string` | Yes |  |
 

@@ -19,6 +19,9 @@ module FinsignalsConfig
     {
       "main" => {
         "name" => "Finsignals",
+        "slug" => "finsignals",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -288,11 +291,13 @@ module FinsignalsConfig
             {
               "name" => "outlook_1y",
               "req" => true,
+              "short" => "Data for one analysis period (1y or 5y).",
               "type" => "`$OBJECT`",
             },
             {
               "name" => "outlook_5y",
               "req" => true,
+              "short" => "Data for one analysis period (1y or 5y).",
               "type" => "`$OBJECT`",
             },
             {

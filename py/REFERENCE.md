@@ -268,8 +268,8 @@ rotation = client.Rotation()
 | `endpoint_type` | `str` | Yes |  |
 | `generated_at` | `str` | Yes |  |
 | `model_version` | `str` | Yes |  |
-| `outlook_1y` | `dict` | Yes |  |
-| `outlook_5y` | `dict` | Yes |  |
+| `outlook_1y` | `dict` | Yes | Data for one analysis period (1y or 5y). |
+| `outlook_5y` | `dict` | Yes | Data for one analysis period (1y or 5y). |
 | `request_id` | `str` | Yes |  |
 | `trading_date` | `str` | Yes |  |
 

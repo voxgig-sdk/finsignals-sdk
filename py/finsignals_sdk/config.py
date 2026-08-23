@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Finsignals",
+            "slug": "finsignals",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -297,11 +300,13 @@ def make_config():
           {
             "name": "outlook_1y",
             "req": True,
+            "short": "Data for one analysis period (1y or 5y).",
             "type": "`$OBJECT`",
           },
           {
             "name": "outlook_5y",
             "req": True,
+            "short": "Data for one analysis period (1y or 5y).",
             "type": "`$OBJECT`",
           },
           {

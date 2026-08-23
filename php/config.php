@@ -33,6 +33,9 @@ class FinsignalsConfig
         return [
             "main" => [
                 "name" => "Finsignals",
+                "slug" => "finsignals",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -302,11 +305,13 @@ class FinsignalsConfig
             [
               'name' => 'outlook_1y',
               'req' => true,
+              'short' => 'Data for one analysis period (1y or 5y).',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'outlook_5y',
               'req' => true,
+              'short' => 'Data for one analysis period (1y or 5y).',
               'type' => '`$OBJECT`',
             ],
             [

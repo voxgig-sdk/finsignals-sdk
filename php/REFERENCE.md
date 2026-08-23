@@ -276,8 +276,8 @@ $rotation = $client->Rotation();
 | `endpoint_type` | `string` | Yes |  |
 | `generated_at` | `string` | Yes |  |
 | `model_version` | `string` | Yes |  |
-| `outlook_1y` | `array` | Yes |  |
-| `outlook_5y` | `array` | Yes |  |
+| `outlook_1y` | `array` | Yes | Data for one analysis period (1y or 5y). |
+| `outlook_5y` | `array` | Yes | Data for one analysis period (1y or 5y). |
 | `request_id` | `string` | Yes |  |
 | `trading_date` | `string` | Yes |  |
 

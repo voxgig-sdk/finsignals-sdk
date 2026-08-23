@@ -274,8 +274,8 @@ local rotation = client:Rotation(nil)
 | `endpoint_type` | `string` | Yes |  |
 | `generated_at` | `string` | Yes |  |
 | `model_version` | `string` | Yes |  |
-| `outlook_1y` | `table` | Yes |  |
-| `outlook_5y` | `table` | Yes |  |
+| `outlook_1y` | `table` | Yes | Data for one analysis period (1y or 5y). |
+| `outlook_5y` | `table` | Yes | Data for one analysis period (1y or 5y). |
 | `request_id` | `string` | Yes |  |
 | `trading_date` | `string` | Yes |  |
 
