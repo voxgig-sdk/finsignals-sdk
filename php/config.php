@@ -134,9 +134,13 @@ class FinsignalsConfig
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/v1/classify',
-                  'parts' => [
-                    'v1',
-                    'classify',
+                  'segments' => [
+                    [
+                      'lit' => 'v1',
+                    ],
+                    [
+                      'lit' => 'classify',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -146,6 +150,10 @@ class FinsignalsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'v1',
+                    'classify',
                   ],
                 ],
                 [
@@ -163,10 +171,16 @@ class FinsignalsConfig
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/v1/classify/batch',
-                  'parts' => [
-                    'v1',
-                    'classify',
-                    'batch',
+                  'segments' => [
+                    [
+                      'lit' => 'v1',
+                    ],
+                    [
+                      'lit' => 'classify',
+                    ],
+                    [
+                      'lit' => 'batch',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'batch',
@@ -177,6 +191,11 @@ class FinsignalsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'v1',
+                    'classify',
+                    'batch',
                   ],
                 ],
               ],
@@ -199,14 +218,22 @@ class FinsignalsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/health',
-                  'parts' => [
-                    'api',
-                    'health',
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'health',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'health',
                   ],
                 ],
                 [
@@ -214,14 +241,22 @@ class FinsignalsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/health',
-                  'parts' => [
-                    'v1',
-                    'health',
+                  'segments' => [
+                    [
+                      'lit' => 'v1',
+                    ],
+                    [
+                      'lit' => 'health',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'v1',
+                    'health',
                   ],
                 ],
               ],
@@ -254,10 +289,16 @@ class FinsignalsConfig
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/internal/rotation/trigger',
-                  'parts' => [
-                    'internal',
-                    'rotation',
-                    'trigger',
+                  'segments' => [
+                    [
+                      'lit' => 'internal',
+                    ],
+                    [
+                      'lit' => 'rotation',
+                    ],
+                    [
+                      'lit' => 'trigger',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -267,6 +308,11 @@ class FinsignalsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'internal',
+                    'rotation',
+                    'trigger',
                   ],
                 ],
               ],
@@ -347,9 +393,13 @@ class FinsignalsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/sector-rotation',
-                  'parts' => [
-                    'v1',
-                    'sector-rotation',
+                  'segments' => [
+                    [
+                      'lit' => 'v1',
+                    ],
+                    [
+                      'lit' => 'sector-rotation',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -359,6 +409,10 @@ class FinsignalsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'v1',
+                    'sector-rotation',
                   ],
                 ],
               ],
@@ -391,9 +445,13 @@ class FinsignalsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/plan',
-                  'parts' => [
-                    'v1',
-                    'plan',
+                  'segments' => [
+                    [
+                      'lit' => 'v1',
+                    ],
+                    [
+                      'lit' => 'plan',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -403,6 +461,10 @@ class FinsignalsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'v1',
+                    'plan',
                   ],
                 ],
                 [
@@ -420,9 +482,13 @@ class FinsignalsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/usage',
-                  'parts' => [
-                    'v1',
-                    'usage',
+                  'segments' => [
+                    [
+                      'lit' => 'v1',
+                    ],
+                    [
+                      'lit' => 'usage',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -432,6 +498,10 @@ class FinsignalsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'v1',
+                    'usage',
                   ],
                 ],
               ],

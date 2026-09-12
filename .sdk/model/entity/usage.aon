@@ -23,9 +23,13 @@ main: kit: entity: usage: {
           }
           method: "GET"
           orig: "/v1/plan"
-          parts: [
-            "v1"
-            "plan"
+          segments: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "plan"
+            }
           ]
           select: {
             exist: [
@@ -51,9 +55,13 @@ main: kit: entity: usage: {
           }
           method: "GET"
           orig: "/v1/usage"
-          parts: [
-            "v1"
-            "usage"
+          segments: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "usage"
+            }
           ]
           select: {
             exist: [

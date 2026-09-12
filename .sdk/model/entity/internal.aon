@@ -24,10 +24,16 @@ main: kit: entity: internal: {
           }
           method: "POST"
           orig: "/internal/rotation/trigger"
-          parts: [
-            "internal"
-            "rotation"
-            "trigger"
+          segments: [
+            {
+              lit: "internal"
+            }
+            {
+              lit: "rotation"
+            }
+            {
+              lit: "trigger"
+            }
           ]
           select: {
             exist: [

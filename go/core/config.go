@@ -112,9 +112,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/v1/classify",
-								"parts": []any{
-									"v1",
-									"classify",
+								"segments": []any{
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "classify",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -124,6 +128,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"v1",
+									"classify",
 								},
 							},
 							map[string]any{
@@ -141,10 +149,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/v1/classify/batch",
-								"parts": []any{
-									"v1",
-									"classify",
-									"batch",
+								"segments": []any{
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "classify",
+									},
+									map[string]any{
+										"lit": "batch",
+									},
 								},
 								"select": map[string]any{
 									"$action": "batch",
@@ -155,6 +169,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"v1",
+									"classify",
+									"batch",
 								},
 							},
 						},
@@ -177,14 +196,22 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/health",
-								"parts": []any{
-									"api",
-									"health",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "health",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"health",
 								},
 							},
 							map[string]any{
@@ -192,14 +219,22 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/health",
-								"parts": []any{
-									"v1",
-									"health",
+								"segments": []any{
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "health",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"v1",
+									"health",
 								},
 							},
 						},
@@ -232,10 +267,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/internal/rotation/trigger",
-								"parts": []any{
-									"internal",
-									"rotation",
-									"trigger",
+								"segments": []any{
+									map[string]any{
+										"lit": "internal",
+									},
+									map[string]any{
+										"lit": "rotation",
+									},
+									map[string]any{
+										"lit": "trigger",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -245,6 +286,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"internal",
+									"rotation",
+									"trigger",
 								},
 							},
 						},
@@ -325,9 +371,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/sector-rotation",
-								"parts": []any{
-									"v1",
-									"sector-rotation",
+								"segments": []any{
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "sector-rotation",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -337,6 +387,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"v1",
+									"sector-rotation",
 								},
 							},
 						},
@@ -369,9 +423,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/plan",
-								"parts": []any{
-									"v1",
-									"plan",
+								"segments": []any{
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "plan",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -381,6 +439,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"v1",
+									"plan",
 								},
 							},
 							map[string]any{
@@ -398,9 +460,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/usage",
-								"parts": []any{
-									"v1",
-									"usage",
+								"segments": []any{
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "usage",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -410,6 +476,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"v1",
+									"usage",
 								},
 							},
 						},
@@ -421,6 +491,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

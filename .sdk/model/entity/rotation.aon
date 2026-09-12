@@ -73,9 +73,13 @@ main: kit: entity: rotation: {
           }
           method: "GET"
           orig: "/v1/sector-rotation"
-          parts: [
-            "v1"
-            "sector-rotation"
+          segments: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "sector-rotation"
+            }
           ]
           select: {
             exist: [

@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -151,9 +162,13 @@ class Config {
               "kind": "http",
               "method": "POST",
               "orig": "/v1/classify",
-              "parts": [
-                "v1",
-                "classify"
+              "segments": [
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "classify"
+                }
               ],
               "select": {
                 "exist": [
@@ -163,7 +178,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "v1",
+                "classify"
+              ]
             },
             {
               "args": {
@@ -180,10 +199,16 @@ class Config {
               "kind": "http",
               "method": "POST",
               "orig": "/v1/classify/batch",
-              "parts": [
-                "v1",
-                "classify",
-                "batch"
+              "segments": [
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "classify"
+                },
+                {
+                  "lit": "batch"
+                }
               ],
               "select": {
                 "$action": "batch",
@@ -194,7 +219,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "v1",
+                "classify",
+                "batch"
+              ]
             }
           ]
         }
@@ -216,30 +246,46 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/health",
-              "parts": [
-                "api",
-                "health"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "health"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "health"
+              ]
             },
             {
               "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/v1/health",
-              "parts": [
-                "v1",
-                "health"
+              "segments": [
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "health"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "v1",
+                "health"
+              ]
             }
           ]
         }
@@ -271,10 +317,16 @@ class Config {
               "kind": "http",
               "method": "POST",
               "orig": "/internal/rotation/trigger",
-              "parts": [
-                "internal",
-                "rotation",
-                "trigger"
+              "segments": [
+                {
+                  "lit": "internal"
+                },
+                {
+                  "lit": "rotation"
+                },
+                {
+                  "lit": "trigger"
+                }
               ],
               "select": {
                 "exist": [
@@ -284,7 +336,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "internal",
+                "rotation",
+                "trigger"
+              ]
             }
           ]
         }
@@ -364,9 +421,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/v1/sector-rotation",
-              "parts": [
-                "v1",
-                "sector-rotation"
+              "segments": [
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "sector-rotation"
+                }
               ],
               "select": {
                 "exist": [
@@ -376,7 +437,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "v1",
+                "sector-rotation"
+              ]
             }
           ]
         }
@@ -408,9 +473,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/v1/plan",
-              "parts": [
-                "v1",
-                "plan"
+              "segments": [
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "plan"
+                }
               ],
               "select": {
                 "exist": [
@@ -420,7 +489,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "v1",
+                "plan"
+              ]
             },
             {
               "args": {
@@ -437,9 +510,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/v1/usage",
-              "parts": [
-                "v1",
-                "usage"
+              "segments": [
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "usage"
+                }
               ],
               "select": {
                 "exist": [
@@ -449,7 +526,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "v1",
+                "usage"
+              ]
             }
           ]
         }
@@ -465,6 +546,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

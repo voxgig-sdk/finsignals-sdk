@@ -120,9 +120,13 @@ module FinsignalsConfig
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/v1/classify",
-                  "parts" => [
-                    "v1",
-                    "classify",
+                  "segments" => [
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "classify",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -133,6 +137,10 @@ module FinsignalsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "v1",
+                    "classify",
+                  ],
                 },
                 {
                   "args" => {
@@ -149,10 +157,16 @@ module FinsignalsConfig
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/v1/classify/batch",
-                  "parts" => [
-                    "v1",
-                    "classify",
-                    "batch",
+                  "segments" => [
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "classify",
+                    },
+                    {
+                      "lit" => "batch",
+                    },
                   ],
                   "select" => {
                     "$action" => "batch",
@@ -164,6 +178,11 @@ module FinsignalsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "v1",
+                    "classify",
+                    "batch",
+                  ],
                 },
               ],
             },
@@ -185,30 +204,46 @@ module FinsignalsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/health",
-                  "parts" => [
-                    "api",
-                    "health",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "health",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "health",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/health",
-                  "parts" => [
-                    "v1",
-                    "health",
+                  "segments" => [
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "health",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "v1",
+                    "health",
+                  ],
                 },
               ],
             },
@@ -240,10 +275,16 @@ module FinsignalsConfig
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/internal/rotation/trigger",
-                  "parts" => [
-                    "internal",
-                    "rotation",
-                    "trigger",
+                  "segments" => [
+                    {
+                      "lit" => "internal",
+                    },
+                    {
+                      "lit" => "rotation",
+                    },
+                    {
+                      "lit" => "trigger",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -254,6 +295,11 @@ module FinsignalsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "internal",
+                    "rotation",
+                    "trigger",
+                  ],
                 },
               ],
             },
@@ -333,9 +379,13 @@ module FinsignalsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/sector-rotation",
-                  "parts" => [
-                    "v1",
-                    "sector-rotation",
+                  "segments" => [
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "sector-rotation",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -346,6 +396,10 @@ module FinsignalsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "v1",
+                    "sector-rotation",
+                  ],
                 },
               ],
             },
@@ -377,9 +431,13 @@ module FinsignalsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/plan",
-                  "parts" => [
-                    "v1",
-                    "plan",
+                  "segments" => [
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "plan",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -390,6 +448,10 @@ module FinsignalsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "v1",
+                    "plan",
+                  ],
                 },
                 {
                   "args" => {
@@ -406,9 +468,13 @@ module FinsignalsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/usage",
-                  "parts" => [
-                    "v1",
-                    "usage",
+                  "segments" => [
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "usage",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -419,6 +485,10 @@ module FinsignalsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "v1",
+                    "usage",
+                  ],
                 },
               ],
             },

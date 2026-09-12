@@ -81,9 +81,13 @@ main: kit: entity: classify: {
           }
           method: "POST"
           orig: "/v1/classify"
-          parts: [
-            "v1"
-            "classify"
+          segments: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "classify"
+            }
           ]
           select: {
             exist: [
@@ -109,10 +113,16 @@ main: kit: entity: classify: {
           }
           method: "POST"
           orig: "/v1/classify/batch"
-          parts: [
-            "v1"
-            "classify"
-            "batch"
+          segments: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "classify"
+            }
+            {
+              lit: "batch"
+            }
           ]
           select: {
             "$action": "batch"

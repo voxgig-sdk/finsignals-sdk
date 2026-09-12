@@ -108,9 +108,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/v1/classify",
-                ["parts"] = {
-                  "v1",
-                  "classify",
+                ["segments"] = {
+                  {
+                    ["lit"] = "v1",
+                  },
+                  {
+                    ["lit"] = "classify",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -120,6 +124,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "v1",
+                  "classify",
                 },
               },
               {
@@ -137,10 +145,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/v1/classify/batch",
-                ["parts"] = {
-                  "v1",
-                  "classify",
-                  "batch",
+                ["segments"] = {
+                  {
+                    ["lit"] = "v1",
+                  },
+                  {
+                    ["lit"] = "classify",
+                  },
+                  {
+                    ["lit"] = "batch",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "batch",
@@ -151,6 +165,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "v1",
+                  "classify",
+                  "batch",
                 },
               },
             },
@@ -173,14 +192,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/health",
-                ["parts"] = {
-                  "api",
-                  "health",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "health",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "health",
                 },
               },
               {
@@ -188,14 +215,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v1/health",
-                ["parts"] = {
-                  "v1",
-                  "health",
+                ["segments"] = {
+                  {
+                    ["lit"] = "v1",
+                  },
+                  {
+                    ["lit"] = "health",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "v1",
+                  "health",
                 },
               },
             },
@@ -228,10 +263,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/internal/rotation/trigger",
-                ["parts"] = {
-                  "internal",
-                  "rotation",
-                  "trigger",
+                ["segments"] = {
+                  {
+                    ["lit"] = "internal",
+                  },
+                  {
+                    ["lit"] = "rotation",
+                  },
+                  {
+                    ["lit"] = "trigger",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -241,6 +282,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "internal",
+                  "rotation",
+                  "trigger",
                 },
               },
             },
@@ -321,9 +367,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v1/sector-rotation",
-                ["parts"] = {
-                  "v1",
-                  "sector-rotation",
+                ["segments"] = {
+                  {
+                    ["lit"] = "v1",
+                  },
+                  {
+                    ["lit"] = "sector-rotation",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -333,6 +383,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "v1",
+                  "sector-rotation",
                 },
               },
             },
@@ -365,9 +419,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v1/plan",
-                ["parts"] = {
-                  "v1",
-                  "plan",
+                ["segments"] = {
+                  {
+                    ["lit"] = "v1",
+                  },
+                  {
+                    ["lit"] = "plan",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -377,6 +435,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "v1",
+                  "plan",
                 },
               },
               {
@@ -394,9 +456,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v1/usage",
-                ["parts"] = {
-                  "v1",
-                  "usage",
+                ["segments"] = {
+                  {
+                    ["lit"] = "v1",
+                  },
+                  {
+                    ["lit"] = "usage",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -406,6 +472,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "v1",
+                  "usage",
                 },
               },
             },

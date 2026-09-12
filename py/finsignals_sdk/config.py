@@ -1,6 +1,14 @@
 # Finsignals SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -129,9 +137,13 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/v1/classify",
-                "parts": [
-                  "v1",
-                  "classify",
+                "segments": [
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "classify",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -142,6 +154,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "v1",
+                  "classify",
+                ],
               },
               {
                 "args": {
@@ -158,10 +174,16 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/v1/classify/batch",
-                "parts": [
-                  "v1",
-                  "classify",
-                  "batch",
+                "segments": [
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "classify",
+                  },
+                  {
+                    "lit": "batch",
+                  },
                 ],
                 "select": {
                   "$action": "batch",
@@ -173,6 +195,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "v1",
+                  "classify",
+                  "batch",
+                ],
               },
             ],
           },
@@ -194,30 +221,46 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/health",
-                "parts": [
-                  "api",
-                  "health",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "health",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "health",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/health",
-                "parts": [
-                  "v1",
-                  "health",
+                "segments": [
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "health",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "v1",
+                  "health",
+                ],
               },
             ],
           },
@@ -249,10 +292,16 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/internal/rotation/trigger",
-                "parts": [
-                  "internal",
-                  "rotation",
-                  "trigger",
+                "segments": [
+                  {
+                    "lit": "internal",
+                  },
+                  {
+                    "lit": "rotation",
+                  },
+                  {
+                    "lit": "trigger",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -263,6 +312,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "internal",
+                  "rotation",
+                  "trigger",
+                ],
               },
             ],
           },
@@ -342,9 +396,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/sector-rotation",
-                "parts": [
-                  "v1",
-                  "sector-rotation",
+                "segments": [
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "sector-rotation",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -355,6 +413,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "v1",
+                  "sector-rotation",
+                ],
               },
             ],
           },
@@ -386,9 +448,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/plan",
-                "parts": [
-                  "v1",
-                  "plan",
+                "segments": [
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "plan",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -399,6 +465,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "v1",
+                  "plan",
+                ],
               },
               {
                 "args": {
@@ -415,9 +485,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/usage",
-                "parts": [
-                  "v1",
-                  "usage",
+                "segments": [
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "usage",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -428,6 +502,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "v1",
+                  "usage",
+                ],
               },
             ],
           },
