@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FinsignalsSDK } from '@voxgig-sdk/finsignals'
+import { FinsignalsSDK } from '@voxgig-sdk/finsignals-sdk'
 
 const client = new FinsignalsSDK()
 ```
@@ -565,7 +565,7 @@ finsignals/
 Import the SDK from the package root:
 
 ```ts
-import { FinsignalsSDK } from '@voxgig-sdk/finsignals'
+import { FinsignalsSDK } from '@voxgig-sdk/finsignals-sdk'
 ```
 
 ### Entity state

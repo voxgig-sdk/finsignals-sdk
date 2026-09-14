@@ -113,7 +113,7 @@ local result, err = client:Health():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/finsignals` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/releases) |
+| TypeScript | `@voxgig-sdk/finsignals-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/releases) |
 | Python | `voxgig-sdk-finsignals` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/releases) |
 | PHP | `voxgig-sdk/finsignals` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/finsignals-sdk/go` | `go get github.com/voxgig-sdk/finsignals-sdk/go@latest` |
@@ -127,7 +127,7 @@ local result, err = client:Health():load()
 ### TypeScript
 
 ```ts
-import { FinsignalsSDK } from '@voxgig-sdk/finsignals'
+import { FinsignalsSDK } from '@voxgig-sdk/finsignals-sdk'
 
 const client = new FinsignalsSDK()
 
