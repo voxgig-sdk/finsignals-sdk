@@ -10,6 +10,12 @@ main: kit: entity: health: {
       name: "load"
       points: [
         {
+          contract: {
+            id: "GET /api/health"
+            json: "{\"operationId\":\"health_check_api_health_get\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{}}},\"description\":\"Successful Response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/api/health"
           segments: [
@@ -26,6 +32,12 @@ main: kit: entity: health: {
           }
         }
         {
+          contract: {
+            id: "GET /v1/health"
+            json: "{\"operationId\":\"health_check_v1_health_get\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{}}},\"description\":\"Successful Response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/v1/health"
           segments: [

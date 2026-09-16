@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "classify": {
           "active": true,
@@ -119,6 +183,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "POST /v1/classify",
+                    "json": "{\"operationId\":\"classify_single_v1_classify_post\",\"parameters\":[{\"in\":\"header\",\"name\":\"X-API-Key\",\"required\":true,\"schema\":{\"title\":\"X-Api-Key\",\"type\":\"string\"}}],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"body\":{\"default\":\"\",\"maxLength\":40000,\"title\":\"Body\",\"type\":\"string\"},\"company_name\":{\"default\":\"\",\"maxLength\":200,\"title\":\"Company Name\",\"type\":\"string\"},\"ticker\":{\"default\":\"\",\"maxLength\":20,\"title\":\"Ticker\",\"type\":\"string\"},\"title\":{\"default\":\"\",\"maxLength\":1000,\"title\":\"Title\",\"type\":\"string\"}},\"title\":\"SingleClassifyRequest\",\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"credits_charged\":{\"title\":\"Credits Charged\",\"type\":\"number\"},\"endpoint_name\":{\"title\":\"Endpoint Name\",\"type\":\"string\"},\"endpoint_type\":{\"title\":\"Endpoint Type\",\"type\":\"string\"},\"model_version\":{\"title\":\"Model Version\",\"type\":\"string\"},\"outputs\":{\"items\":{\"properties\":{\"author_confidence\":{\"title\":\"Author Confidence\",\"type\":\"number\"},\"directionality\":{\"additionalProperties\":true,\"title\":\"Directionality\",\"type\":\"object\"},\"post_type\":{\"additionalProperties\":true,\"title\":\"Post Type\",\"type\":\"object\"},\"quality\":{\"additionalProperties\":true,\"title\":\"Quality\",\"type\":\"object\"},\"relevance_score\":{\"title\":\"Relevance Score\",\"type\":\"number\"},\"sarcasm\":{\"title\":\"Sarcasm\",\"type\":\"boolean\"},\"sentiment\":{\"additionalProperties\":true,\"title\":\"Sentiment\",\"type\":\"object\"}},\"required\":[\"sentiment\",\"quality\",\"directionality\",\"post_type\",\"relevance_score\",\"author_confidence\",\"sarcasm\"],\"title\":\"ClassificationOutput\",\"type\":\"object\"},\"title\":\"Outputs\",\"type\":\"array\"},\"request_id\":{\"title\":\"Request Id\",\"type\":\"string\"}},\"required\":[\"model_version\",\"request_id\",\"credits_charged\",\"endpoint_type\",\"endpoint_name\",\"outputs\"],\"title\":\"ClassifyResponse\",\"type\":\"object\"}}},\"description\":\"Successful Response\"},\"422\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"detail\":{\"items\":{\"properties\":{\"ctx\":{\"title\":\"Context\",\"type\":\"object\"},\"input\":{\"title\":\"Input\"},\"loc\":{\"items\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"integer\"}]},\"title\":\"Location\",\"type\":\"array\"},\"msg\":{\"title\":\"Message\",\"type\":\"string\"},\"type\":{\"title\":\"Error Type\",\"type\":\"string\"}},\"required\":[\"loc\",\"msg\",\"type\"],\"title\":\"ValidationError\",\"type\":\"object\"},\"title\":\"Detail\",\"type\":\"array\"}},\"title\":\"HTTPValidationError\",\"type\":\"object\"}}},\"description\":\"Validation Error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "POST",
                   "orig": "/v1/classify",
@@ -153,6 +223,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "POST /v1/classify/batch",
+                    "json": "{\"operationId\":\"classify_batch_v1_classify_batch_post\",\"parameters\":[{\"in\":\"header\",\"name\":\"X-API-Key\",\"required\":true,\"schema\":{\"title\":\"X-Api-Key\",\"type\":\"string\"}}],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"body\":{\"default\":\"\",\"maxLength\":40000,\"title\":\"Body\",\"type\":\"string\"},\"company_name\":{\"default\":\"\",\"maxLength\":200,\"title\":\"Company Name\",\"type\":\"string\"},\"ticker\":{\"default\":\"\",\"maxLength\":20,\"title\":\"Ticker\",\"type\":\"string\"},\"title\":{\"default\":\"\",\"maxLength\":1000,\"title\":\"Title\",\"type\":\"string\"}},\"title\":\"RedditPostInput\",\"type\":\"object\"},\"title\":\"Items\",\"type\":\"array\"}},\"required\":[\"items\"],\"title\":\"BatchClassifyRequest\",\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"credits_charged\":{\"title\":\"Credits Charged\",\"type\":\"number\"},\"endpoint_name\":{\"title\":\"Endpoint Name\",\"type\":\"string\"},\"endpoint_type\":{\"title\":\"Endpoint Type\",\"type\":\"string\"},\"model_version\":{\"title\":\"Model Version\",\"type\":\"string\"},\"outputs\":{\"items\":{\"properties\":{\"author_confidence\":{\"title\":\"Author Confidence\",\"type\":\"number\"},\"directionality\":{\"additionalProperties\":true,\"title\":\"Directionality\",\"type\":\"object\"},\"post_type\":{\"additionalProperties\":true,\"title\":\"Post Type\",\"type\":\"object\"},\"quality\":{\"additionalProperties\":true,\"title\":\"Quality\",\"type\":\"object\"},\"relevance_score\":{\"title\":\"Relevance Score\",\"type\":\"number\"},\"sarcasm\":{\"title\":\"Sarcasm\",\"type\":\"boolean\"},\"sentiment\":{\"additionalProperties\":true,\"title\":\"Sentiment\",\"type\":\"object\"}},\"required\":[\"sentiment\",\"quality\",\"directionality\",\"post_type\",\"relevance_score\",\"author_confidence\",\"sarcasm\"],\"title\":\"ClassificationOutput\",\"type\":\"object\"},\"title\":\"Outputs\",\"type\":\"array\"},\"request_id\":{\"title\":\"Request Id\",\"type\":\"string\"}},\"required\":[\"model_version\",\"request_id\",\"credits_charged\",\"endpoint_type\",\"endpoint_name\",\"outputs\"],\"title\":\"ClassifyResponse\",\"type\":\"object\"}}},\"description\":\"Successful Response\"},\"422\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"detail\":{\"items\":{\"properties\":{\"ctx\":{\"title\":\"Context\",\"type\":\"object\"},\"input\":{\"title\":\"Input\"},\"loc\":{\"items\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"integer\"}]},\"title\":\"Location\",\"type\":\"array\"},\"msg\":{\"title\":\"Message\",\"type\":\"string\"},\"type\":{\"title\":\"Error Type\",\"type\":\"string\"}},\"required\":[\"loc\",\"msg\",\"type\"],\"title\":\"ValidationError\",\"type\":\"object\"},\"title\":\"Detail\",\"type\":\"array\"}},\"title\":\"HTTPValidationError\",\"type\":\"object\"}}},\"description\":\"Validation Error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "POST",
@@ -201,6 +277,12 @@
                 {
                   "active": true,
                   "args": {},
+                  "contract": {
+                    "id": "GET /api/health",
+                    "json": "{\"operationId\":\"health_check_api_health_get\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{}}},\"description\":\"Successful Response\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/api/health",
@@ -221,6 +303,12 @@
                 {
                   "active": true,
                   "args": {},
+                  "contract": {
+                    "id": "GET /v1/health",
+                    "json": "{\"operationId\":\"health_check_v1_health_get\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{}}},\"description\":\"Successful Response\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/v1/health",
@@ -271,6 +359,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "POST /internal/rotation/trigger",
+                    "json": "{\"operationId\":\"trigger_rotation_internal_rotation_trigger_post\",\"parameters\":[{\"in\":\"header\",\"name\":\"x-internal-token\",\"required\":false,\"schema\":{\"default\":\"\",\"title\":\"X-Internal-Token\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{}}},\"description\":\"Successful Response\"},\"422\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"detail\":{\"items\":{\"properties\":{\"ctx\":{\"title\":\"Context\",\"type\":\"object\"},\"input\":{\"title\":\"Input\"},\"loc\":{\"items\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"integer\"}]},\"title\":\"Location\",\"type\":\"array\"},\"msg\":{\"title\":\"Message\",\"type\":\"string\"},\"type\":{\"title\":\"Error Type\",\"type\":\"string\"}},\"required\":[\"loc\",\"msg\",\"type\"],\"title\":\"ValidationError\",\"type\":\"object\"},\"title\":\"Detail\",\"type\":\"array\"}},\"title\":\"HTTPValidationError\",\"type\":\"object\"}}},\"description\":\"Validation Error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "POST",
@@ -386,6 +480,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /v1/sector-rotation",
+                    "json": "{\"operationId\":\"get_sector_rotation_v1_sector_rotation_get\",\"parameters\":[{\"in\":\"header\",\"name\":\"X-API-Key\",\"required\":true,\"schema\":{\"title\":\"X-Api-Key\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"credits_charged\":{\"title\":\"Credits Charged\",\"type\":\"number\"},\"endpoint_name\":{\"title\":\"Endpoint Name\",\"type\":\"string\"},\"endpoint_type\":{\"title\":\"Endpoint Type\",\"type\":\"string\"},\"generated_at\":{\"title\":\"Generated At\",\"type\":\"string\"},\"model_version\":{\"title\":\"Model Version\",\"type\":\"string\"},\"outlook_1y\":{\"description\":\"Data for one analysis period (1y or 5y).\",\"properties\":{\"generated_at\":{\"title\":\"Generated At\",\"type\":\"string\"},\"industry_data\":{\"additionalProperties\":{\"properties\":{\"adjustment\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Adjustment\"},\"confidence\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Confidence\"},\"etf\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Etf\"},\"fmp_daily_pct\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Fmp Daily Pct\"},\"mom_accel\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Mom Accel\"},\"parent_sector_etf\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Parent Sector Etf\"},\"pe\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Pe\"},\"phase\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Phase\"},\"ret_12m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 12M\"},\"ret_1m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 1M\"},\"ret_1w\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 1W\"},\"ret_3m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 3M\"},\"ret_6m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 6M\"},\"ret_9m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 9M\"},\"rotation_score\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rotation Score\"},\"rs_12m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 12M\"},\"rs_1m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 1M\"},\"rs_3m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 3M\"},\"rs_6m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 6M\"},\"rs_9m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 9M\"},\"rs_vs_sector_1m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs Vs Sector 1M\"},\"rs_vs_sector_3m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs Vs Sector 3M\"},\"rs_vs_sector_6m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs Vs Sector 6M\"},\"vol_ratio\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Vol Ratio\"}},\"title\":\"IndustryRow\",\"type\":\"object\"},\"title\":\"Industry Data\",\"type\":\"object\"},\"sector_data\":{\"additionalProperties\":{\"properties\":{\"adjustment\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Adjustment\"},\"confidence\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Confidence\"},\"etf\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Etf\"},\"mom_accel\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Mom Accel\"},\"pe\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Pe\"},\"phase\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Phase\"},\"ret_12m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 12M\"},\"ret_1m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 1M\"},\"ret_1w\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 1W\"},\"ret_3m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 3M\"},\"ret_6m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 6M\"},\"ret_9m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 9M\"},\"rotation_score\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rotation Score\"},\"rs_12m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 12M\"},\"rs_1m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 1M\"},\"rs_3m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 3M\"},\"rs_6m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 6M\"},\"rs_9m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 9M\"},\"vol_ratio\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Vol Ratio\"}},\"title\":\"SectorRow\",\"type\":\"object\"},\"title\":\"Sector Data\",\"type\":\"object\"},\"spy_metrics\":{\"properties\":{\"ret_12m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 12M\"},\"ret_1m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 1M\"},\"ret_3m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 3M\"},\"ret_6m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 6M\"},\"ret_9m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 9M\"}},\"title\":\"SpyMetrics\",\"type\":\"object\"},\"summary_md\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Summary Md\"},\"trading_date\":{\"title\":\"Trading Date\",\"type\":\"string\"},\"weekly_snapshots\":{\"default\":[],\"items\":{\"additionalProperties\":true,\"type\":\"object\"},\"title\":\"Weekly Snapshots\",\"type\":\"array\"}},\"required\":[\"trading_date\",\"generated_at\",\"sector_data\",\"industry_data\",\"spy_metrics\"],\"title\":\"RotationPeriodData\",\"type\":\"object\"},\"outlook_5y\":{\"description\":\"Data for one analysis period (1y or 5y).\",\"properties\":{\"generated_at\":{\"title\":\"Generated At\",\"type\":\"string\"},\"industry_data\":{\"additionalProperties\":{\"properties\":{\"adjustment\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Adjustment\"},\"confidence\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Confidence\"},\"etf\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Etf\"},\"fmp_daily_pct\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Fmp Daily Pct\"},\"mom_accel\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Mom Accel\"},\"parent_sector_etf\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Parent Sector Etf\"},\"pe\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Pe\"},\"phase\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Phase\"},\"ret_12m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 12M\"},\"ret_1m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 1M\"},\"ret_1w\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 1W\"},\"ret_3m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 3M\"},\"ret_6m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 6M\"},\"ret_9m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 9M\"},\"rotation_score\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rotation Score\"},\"rs_12m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 12M\"},\"rs_1m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 1M\"},\"rs_3m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 3M\"},\"rs_6m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 6M\"},\"rs_9m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 9M\"},\"rs_vs_sector_1m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs Vs Sector 1M\"},\"rs_vs_sector_3m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs Vs Sector 3M\"},\"rs_vs_sector_6m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs Vs Sector 6M\"},\"vol_ratio\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Vol Ratio\"}},\"title\":\"IndustryRow\",\"type\":\"object\"},\"title\":\"Industry Data\",\"type\":\"object\"},\"sector_data\":{\"additionalProperties\":{\"properties\":{\"adjustment\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Adjustment\"},\"confidence\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Confidence\"},\"etf\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Etf\"},\"mom_accel\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Mom Accel\"},\"pe\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Pe\"},\"phase\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Phase\"},\"ret_12m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 12M\"},\"ret_1m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 1M\"},\"ret_1w\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 1W\"},\"ret_3m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 3M\"},\"ret_6m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 6M\"},\"ret_9m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 9M\"},\"rotation_score\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rotation Score\"},\"rs_12m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 12M\"},\"rs_1m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 1M\"},\"rs_3m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 3M\"},\"rs_6m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 6M\"},\"rs_9m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Rs 9M\"},\"vol_ratio\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Vol Ratio\"}},\"title\":\"SectorRow\",\"type\":\"object\"},\"title\":\"Sector Data\",\"type\":\"object\"},\"spy_metrics\":{\"properties\":{\"ret_12m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 12M\"},\"ret_1m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 1M\"},\"ret_3m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 3M\"},\"ret_6m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 6M\"},\"ret_9m\":{\"anyOf\":[{\"type\":\"number\"},{\"type\":\"null\"}],\"title\":\"Ret 9M\"}},\"title\":\"SpyMetrics\",\"type\":\"object\"},\"summary_md\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Summary Md\"},\"trading_date\":{\"title\":\"Trading Date\",\"type\":\"string\"},\"weekly_snapshots\":{\"default\":[],\"items\":{\"additionalProperties\":true,\"type\":\"object\"},\"title\":\"Weekly Snapshots\",\"type\":\"array\"}},\"required\":[\"trading_date\",\"generated_at\",\"sector_data\",\"industry_data\",\"spy_metrics\"],\"title\":\"RotationPeriodData\",\"type\":\"object\"},\"request_id\":{\"title\":\"Request Id\",\"type\":\"string\"},\"trading_date\":{\"title\":\"Trading Date\",\"type\":\"string\"}},\"required\":[\"request_id\",\"model_version\",\"credits_charged\",\"endpoint_type\",\"endpoint_name\",\"trading_date\",\"generated_at\",\"outlook_1y\",\"outlook_5y\"],\"title\":\"RotationResponse\",\"type\":\"object\"}}},\"description\":\"Successful Response\"},\"422\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"detail\":{\"items\":{\"properties\":{\"ctx\":{\"title\":\"Context\",\"type\":\"object\"},\"input\":{\"title\":\"Input\"},\"loc\":{\"items\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"integer\"}]},\"title\":\"Location\",\"type\":\"array\"},\"msg\":{\"title\":\"Message\",\"type\":\"string\"},\"type\":{\"title\":\"Error Type\",\"type\":\"string\"}},\"required\":[\"loc\",\"msg\",\"type\"],\"title\":\"ValidationError\",\"type\":\"object\"},\"title\":\"Detail\",\"type\":\"array\"}},\"title\":\"HTTPValidationError\",\"type\":\"object\"}}},\"description\":\"Validation Error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/v1/sector-rotation",
@@ -440,6 +540,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /v1/plan",
+                    "json": "{\"operationId\":\"get_plan_v1_plan_get\",\"parameters\":[{\"in\":\"header\",\"name\":\"X-API-Key\",\"required\":true,\"schema\":{\"title\":\"X-Api-Key\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{}}},\"description\":\"Successful Response\"},\"422\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"detail\":{\"items\":{\"properties\":{\"ctx\":{\"title\":\"Context\",\"type\":\"object\"},\"input\":{\"title\":\"Input\"},\"loc\":{\"items\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"integer\"}]},\"title\":\"Location\",\"type\":\"array\"},\"msg\":{\"title\":\"Message\",\"type\":\"string\"},\"type\":{\"title\":\"Error Type\",\"type\":\"string\"}},\"required\":[\"loc\",\"msg\",\"type\"],\"title\":\"ValidationError\",\"type\":\"object\"},\"title\":\"Detail\",\"type\":\"array\"}},\"title\":\"HTTPValidationError\",\"type\":\"object\"}}},\"description\":\"Validation Error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/v1/plan",
@@ -475,6 +581,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /v1/usage",
+                    "json": "{\"operationId\":\"get_usage_v1_usage_get\",\"parameters\":[{\"in\":\"header\",\"name\":\"X-API-Key\",\"required\":true,\"schema\":{\"title\":\"X-Api-Key\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{}}},\"description\":\"Successful Response\"},\"422\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"detail\":{\"items\":{\"properties\":{\"ctx\":{\"title\":\"Context\",\"type\":\"object\"},\"input\":{\"title\":\"Input\"},\"loc\":{\"items\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"integer\"}]},\"title\":\"Location\",\"type\":\"array\"},\"msg\":{\"title\":\"Message\",\"type\":\"string\"},\"type\":{\"title\":\"Error Type\",\"type\":\"string\"}},\"required\":[\"loc\",\"msg\",\"type\"],\"title\":\"ValidationError\",\"type\":\"object\"},\"title\":\"Detail\",\"type\":\"array\"}},\"title\":\"HTTPValidationError\",\"type\":\"object\"}}},\"description\":\"Validation Error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/v1/usage",
@@ -505,13 +617,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -601,6 +923,102 @@
           },
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
+          "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
           "version": "0.0.1"
         }
       },
@@ -760,6 +1178,48 @@
         }
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1314,6 +1774,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1355,7 +1816,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

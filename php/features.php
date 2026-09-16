@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Finsignals SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class FinsignalsFeatures
@@ -14,8 +17,14 @@ class FinsignalsFeatures
         switch ($name) {
             case "base":
                 return new FinsignalsBaseFeature();
+            case "ratelimit":
+                return new FinsignalsRatelimitFeature();
+            case "retry":
+                return new FinsignalsRetryFeature();
             case "test":
                 return new FinsignalsTestFeature();
+            case "timeout":
+                return new FinsignalsTimeoutFeature();
             default:
                 return new FinsignalsBaseFeature();
         }
@@ -31,7 +40,10 @@ class FinsignalsFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

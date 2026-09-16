@@ -16,5 +16,45 @@
     "health": {
       "health_ref01": {}
     }
+  },
+  "requests": {
+    "GET /api/health": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "health_check_api_health_get",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /v1/health": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "health_check_v1_health_get",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

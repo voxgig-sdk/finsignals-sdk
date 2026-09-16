@@ -61,5 +61,434 @@
         "title": "s1c2"
       }
     }
+  },
+  "requests": {
+    "POST /v1/classify": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "classify_single_v1_classify_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-API-Key",
+            "required": true,
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "body": {
+                    "default": "",
+                    "maxLength": 40000,
+                    "title": "Body",
+                    "type": "string"
+                  },
+                  "company_name": {
+                    "default": "",
+                    "maxLength": 200,
+                    "title": "Company Name",
+                    "type": "string"
+                  },
+                  "ticker": {
+                    "default": "",
+                    "maxLength": 20,
+                    "title": "Ticker",
+                    "type": "string"
+                  },
+                  "title": {
+                    "default": "",
+                    "maxLength": 1000,
+                    "title": "Title",
+                    "type": "string"
+                  }
+                },
+                "title": "SingleClassifyRequest",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "credits_charged": {
+                      "title": "Credits Charged",
+                      "type": "number"
+                    },
+                    "endpoint_name": {
+                      "title": "Endpoint Name",
+                      "type": "string"
+                    },
+                    "endpoint_type": {
+                      "title": "Endpoint Type",
+                      "type": "string"
+                    },
+                    "model_version": {
+                      "title": "Model Version",
+                      "type": "string"
+                    },
+                    "outputs": {
+                      "items": {
+                        "properties": {
+                          "author_confidence": {
+                            "title": "Author Confidence",
+                            "type": "number"
+                          },
+                          "directionality": {
+                            "additionalProperties": true,
+                            "title": "Directionality",
+                            "type": "object"
+                          },
+                          "post_type": {
+                            "additionalProperties": true,
+                            "title": "Post Type",
+                            "type": "object"
+                          },
+                          "quality": {
+                            "additionalProperties": true,
+                            "title": "Quality",
+                            "type": "object"
+                          },
+                          "relevance_score": {
+                            "title": "Relevance Score",
+                            "type": "number"
+                          },
+                          "sarcasm": {
+                            "title": "Sarcasm",
+                            "type": "boolean"
+                          },
+                          "sentiment": {
+                            "additionalProperties": true,
+                            "title": "Sentiment",
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "sentiment",
+                          "quality",
+                          "directionality",
+                          "post_type",
+                          "relevance_score",
+                          "author_confidence",
+                          "sarcasm"
+                        ],
+                        "title": "ClassificationOutput",
+                        "type": "object"
+                      },
+                      "title": "Outputs",
+                      "type": "array"
+                    },
+                    "request_id": {
+                      "title": "Request Id",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "model_version",
+                    "request_id",
+                    "credits_charged",
+                    "endpoint_type",
+                    "endpoint_name",
+                    "outputs"
+                  ],
+                  "title": "ClassifyResponse",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "ctx": {
+                            "title": "Context",
+                            "type": "object"
+                          },
+                          "input": {
+                            "title": "Input"
+                          },
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "POST /v1/classify/batch": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "classify_batch_v1_classify_batch_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-API-Key",
+            "required": true,
+            "schema": {
+              "title": "X-Api-Key",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "items": {
+                    "items": {
+                      "properties": {
+                        "body": {
+                          "default": "",
+                          "maxLength": 40000,
+                          "title": "Body",
+                          "type": "string"
+                        },
+                        "company_name": {
+                          "default": "",
+                          "maxLength": 200,
+                          "title": "Company Name",
+                          "type": "string"
+                        },
+                        "ticker": {
+                          "default": "",
+                          "maxLength": 20,
+                          "title": "Ticker",
+                          "type": "string"
+                        },
+                        "title": {
+                          "default": "",
+                          "maxLength": 1000,
+                          "title": "Title",
+                          "type": "string"
+                        }
+                      },
+                      "title": "RedditPostInput",
+                      "type": "object"
+                    },
+                    "title": "Items",
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "items"
+                ],
+                "title": "BatchClassifyRequest",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "credits_charged": {
+                      "title": "Credits Charged",
+                      "type": "number"
+                    },
+                    "endpoint_name": {
+                      "title": "Endpoint Name",
+                      "type": "string"
+                    },
+                    "endpoint_type": {
+                      "title": "Endpoint Type",
+                      "type": "string"
+                    },
+                    "model_version": {
+                      "title": "Model Version",
+                      "type": "string"
+                    },
+                    "outputs": {
+                      "items": {
+                        "properties": {
+                          "author_confidence": {
+                            "title": "Author Confidence",
+                            "type": "number"
+                          },
+                          "directionality": {
+                            "additionalProperties": true,
+                            "title": "Directionality",
+                            "type": "object"
+                          },
+                          "post_type": {
+                            "additionalProperties": true,
+                            "title": "Post Type",
+                            "type": "object"
+                          },
+                          "quality": {
+                            "additionalProperties": true,
+                            "title": "Quality",
+                            "type": "object"
+                          },
+                          "relevance_score": {
+                            "title": "Relevance Score",
+                            "type": "number"
+                          },
+                          "sarcasm": {
+                            "title": "Sarcasm",
+                            "type": "boolean"
+                          },
+                          "sentiment": {
+                            "additionalProperties": true,
+                            "title": "Sentiment",
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "sentiment",
+                          "quality",
+                          "directionality",
+                          "post_type",
+                          "relevance_score",
+                          "author_confidence",
+                          "sarcasm"
+                        ],
+                        "title": "ClassificationOutput",
+                        "type": "object"
+                      },
+                      "title": "Outputs",
+                      "type": "array"
+                    },
+                    "request_id": {
+                      "title": "Request Id",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "model_version",
+                    "request_id",
+                    "credits_charged",
+                    "endpoint_type",
+                    "endpoint_name",
+                    "outputs"
+                  ],
+                  "title": "ClassifyResponse",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "ctx": {
+                            "title": "Context",
+                            "type": "object"
+                          },
+                          "input": {
+                            "title": "Input"
+                          },
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

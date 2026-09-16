@@ -1,12 +1,18 @@
 # Finsignals SDK feature factory
 
 from finsignals_sdk.feature.base_feature import FinsignalsBaseFeature
+from finsignals_sdk.feature.ratelimit_feature import FinsignalsRatelimitFeature
+from finsignals_sdk.feature.retry_feature import FinsignalsRetryFeature
 from finsignals_sdk.feature.test_feature import FinsignalsTestFeature
+from finsignals_sdk.feature.timeout_feature import FinsignalsTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: FinsignalsBaseFeature(),
+    "ratelimit": lambda: FinsignalsRatelimitFeature(),
+    "retry": lambda: FinsignalsRetryFeature(),
     "test": lambda: FinsignalsTestFeature(),
+    "timeout": lambda: FinsignalsTimeoutFeature(),
 }
 
 
