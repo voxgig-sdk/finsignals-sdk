@@ -12,7 +12,6 @@
 ---@field credits_charged number
 ---@field endpoint_name string
 ---@field endpoint_type string
----@field items table
 ---@field model_version string
 ---@field outputs table
 ---@field request_id string
@@ -25,7 +24,6 @@
 ---@field credits_charged number
 ---@field endpoint_name string
 ---@field endpoint_type string
----@field items table
 ---@field model_version string
 ---@field outputs table
 ---@field request_id string

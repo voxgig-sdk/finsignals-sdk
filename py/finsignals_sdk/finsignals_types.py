@@ -20,7 +20,6 @@ class ClassifyRequired(TypedDict):
     credits_charged: float
     endpoint_name: str
     endpoint_type: str
-    items: list
     model_version: str
     outputs: list
     request_id: str
@@ -37,7 +36,6 @@ class ClassifyCreateDataRequired(TypedDict):
     credits_charged: float
     endpoint_name: str
     endpoint_type: str
-    items: list
     model_version: str
     outputs: list
     request_id: str

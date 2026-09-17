@@ -25,9 +25,6 @@
 # @!attribute [rw] endpoint_type
 #   @return [String]
 #
-# @!attribute [rw] items
-#   @return [Array]
-#
 # @!attribute [rw] model_version
 #   @return [String]
 #
@@ -48,7 +45,6 @@ Classify = Struct.new(
   :credits_charged,
   :endpoint_name,
   :endpoint_type,
-  :items,
   :model_version,
   :outputs,
   :request_id,
@@ -74,9 +70,6 @@ Classify = Struct.new(
 # @!attribute [rw] endpoint_type
 #   @return [String]
 #
-# @!attribute [rw] items
-#   @return [Array]
-#
 # @!attribute [rw] model_version
 #   @return [String]
 #
@@ -97,7 +90,6 @@ ClassifyCreateData = Struct.new(
   :credits_charged,
   :endpoint_name,
   :endpoint_type,
-  :items,
   :model_version,
   :outputs,
   :request_id,

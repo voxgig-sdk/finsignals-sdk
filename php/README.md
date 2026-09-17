@@ -35,7 +35,7 @@ $client = new FinsignalsSDK();
 
 ```php
 // create() returns the ENTITY — call data_get() for the created Classify record.
-$created = $client->Classify()->create(["credits_charged" => 1, "endpoint_name" => "example_endpoint_name", "endpoint_type" => "example_endpoint_type", "items" => [], "model_version" => "example_model_version", "outputs" => [], "request_id" => "example_request_id"]);
+$created = $client->Classify()->create(["credits_charged" => 1, "endpoint_name" => "example_endpoint_name", "endpoint_type" => "example_endpoint_type", "model_version" => "example_model_version", "outputs" => [], "request_id" => "example_request_id"]);
 
 ```
 
@@ -251,7 +251,6 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `credits_charged` |  |
 | `endpoint_name` |  |
 | `endpoint_type` |  |
-| `items` |  |
 | `model_version` |  |
 | `outputs` |  |
 | `request_id` |  |
@@ -331,7 +330,6 @@ Create an instance: `$classify = $client->Classify();`
 | `credits_charged` | `float` |  |
 | `endpoint_name` | `string` |  |
 | `endpoint_type` | `string` |  |
-| `items` | `array` |  |
 | `model_version` | `string` |  |
 | `outputs` | `array` |  |
 | `request_id` | `string` |  |
@@ -345,7 +343,6 @@ $classify = $client->Classify()->create([
     "credits_charged" => null, // float
     "endpoint_name" => null, // string
     "endpoint_type" => null, // string
-    "items" => null, // array
     "model_version" => null, // string
     "outputs" => null, // array
     "request_id" => null, // string
@@ -581,6 +578,7 @@ Use `Helpers::to_map()` to safely validate that a value is an array.
 php/
 ├── finsignals_sdk.php          -- Main SDK class
 ├── config.php                     -- Configuration
+├── schema.php                     -- Generated option + entity specs
 ├── features.php                   -- Feature factory
 ├── core/                          -- Core types and context
 ├── entity/                        -- Entity implementations

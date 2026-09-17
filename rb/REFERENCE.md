@@ -114,7 +114,6 @@ classify = client.Classify
 | `credits_charged` | `Float` | Yes |  |
 | `endpoint_name` | `String` | Yes |  |
 | `endpoint_type` | `String` | Yes |  |
-| `items` | `Array` | Yes |  |
 | `model_version` | `String` | Yes |  |
 | `outputs` | `Array` | Yes |  |
 | `request_id` | `String` | Yes |  |
@@ -132,7 +131,6 @@ result = client.Classify.create({
   "credits_charged" => 1, # Float
   "endpoint_name" => "example_endpoint_name", # String
   "endpoint_type" => "example_endpoint_type", # String
-  "items" => [], # Array
   "model_version" => "example_model_version", # String
   "outputs" => [], # Array
   "request_id" => "example_request_id", # String

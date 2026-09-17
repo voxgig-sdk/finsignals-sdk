@@ -139,11 +139,6 @@ class FinsignalsConfig
               'type' => '`$STRING`',
             ],
             [
-              'name' => 'items',
-              'req' => true,
-              'type' => '`$ARRAY`',
-            ],
-            [
               'name' => 'model_version',
               'req' => true,
               'type' => '`$STRING`',

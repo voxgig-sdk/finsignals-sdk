@@ -108,7 +108,6 @@ classify = client.Classify()
 | `credits_charged` | `float` | Yes |  |
 | `endpoint_name` | `str` | Yes |  |
 | `endpoint_type` | `str` | Yes |  |
-| `items` | `list` | Yes |  |
 | `model_version` | `str` | Yes |  |
 | `outputs` | `list` | Yes |  |
 | `request_id` | `str` | Yes |  |
@@ -126,7 +125,6 @@ result = client.Classify().create({
     "credits_charged": 1,  # float
     "endpoint_name": "example_endpoint_name",  # str
     "endpoint_type": "example_endpoint_type",  # str
-    "items": [],  # list
     "model_version": "example_model_version",  # str
     "outputs": [],  # list
     "request_id": "example_request_id",  # str

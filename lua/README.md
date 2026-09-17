@@ -37,7 +37,7 @@ local client = sdk.new()
 
 ```lua
 -- Create
-local created, err = client:Classify():create({ credits_charged = 1, endpoint_name = "example_endpoint_name", endpoint_type = "example_endpoint_type", items = {}, model_version = "example_model_version", outputs = {}, request_id = "example_request_id" })
+local created, err = client:Classify():create({ credits_charged = 1, endpoint_name = "example_endpoint_name", endpoint_type = "example_endpoint_type", model_version = "example_model_version", outputs = {}, request_id = "example_request_id" })
 if err then error(err) end
 
 ```
@@ -236,7 +236,6 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `credits_charged` |  |
 | `endpoint_name` |  |
 | `endpoint_type` |  |
-| `items` |  |
 | `model_version` |  |
 | `outputs` |  |
 | `request_id` |  |
@@ -316,7 +315,6 @@ Create an instance: `local classify = client:Classify(nil)`
 | `credits_charged` | `number` |  |
 | `endpoint_name` | `string` |  |
 | `endpoint_type` | `string` |  |
-| `items` | `table` |  |
 | `model_version` | `string` |  |
 | `outputs` | `table` |  |
 | `request_id` | `string` |  |
@@ -330,7 +328,6 @@ local classify, err = client:Classify():create({
   credits_charged = 1, -- number
   endpoint_name = "example_endpoint_name", -- string
   endpoint_type = "example_endpoint_type", -- string
-  items = {}, -- table
   model_version = "example_model_version", -- string
   outputs = {}, -- table
   request_id = "example_request_id", -- string
@@ -563,6 +560,7 @@ Use `helpers.to_map()` to safely validate that a value is a table.
 lua/
 ├── finsignals_sdk.lua    -- Main SDK module
 ├── config.lua               -- Configuration
+├── schema.lua               -- Generated option + entity specs
 ├── features.lua             -- Feature factory
 ├── core/                    -- Core types and context
 ├── entity/                  -- Entity implementations

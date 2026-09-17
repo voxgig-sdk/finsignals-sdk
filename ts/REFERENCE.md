@@ -169,7 +169,6 @@ const classify = client.Classify()
 | `credits_charged` | `number` | Yes |  |
 | `endpoint_name` | `string` | Yes |  |
 | `endpoint_type` | `string` | Yes |  |
-| `items` | `any[]` | Yes |  |
 | `model_version` | `string` | Yes |  |
 | `outputs` | `any[]` | Yes |  |
 | `request_id` | `string` | Yes |  |
@@ -207,7 +206,6 @@ const result = await client.Classify().create({
   credits_charged: 1,
   endpoint_name: 'example_endpoint_name',
   endpoint_type: 'example_endpoint_type',
-  items: [],
   model_version: 'example_model_version',
   outputs: [],
   request_id: 'example_request_id',

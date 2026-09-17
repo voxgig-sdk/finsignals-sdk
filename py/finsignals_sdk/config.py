@@ -142,11 +142,6 @@ def make_config():
             "type": "`$STRING`",
           },
           {
-            "name": "items",
-            "req": True,
-            "type": "`$ARRAY`",
-          },
-          {
             "name": "model_version",
             "req": True,
             "type": "`$STRING`",

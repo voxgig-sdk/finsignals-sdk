@@ -127,21 +127,21 @@ class Config {
 
     entity: {
       
-      classify: {
-      },
-
-      health: {
-      },
-
-      internal: {
-      },
-
-      rotation: {
-      },
-
-      usage: {
-      },
-
+        classify: {
+        },
+  
+        health: {
+        },
+  
+        internal: {
+        },
+  
+        rotation: {
+        },
+  
+        usage: {
+        },
+  
     }
   }
 
@@ -171,11 +171,6 @@ class Config {
           "name": "endpoint_type",
           "req": true,
           "type": "`$STRING`"
-        },
-        {
-          "name": "items",
-          "req": true,
-          "type": "`$ARRAY`"
         },
         {
           "name": "model_version",

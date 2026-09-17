@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Create a classify.
-    created, err := client.Classify(nil).Create(map[string]any{"credits_charged": 1, "endpoint_name": "example_endpoint_name", "endpoint_type": "example_endpoint_type", "items": []any{}, "model_version": "example_model_version", "outputs": []any{}, "request_id": "example_request_id"}, nil)
+    created, err := client.Classify(nil).Create(map[string]any{"credits_charged": 1, "endpoint_name": "example_endpoint_name", "endpoint_type": "example_endpoint_type", "model_version": "example_model_version", "outputs": []any{}, "request_id": "example_request_id"}, nil)
     if err != nil {
         panic(err)
     }
@@ -268,7 +268,6 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"credits_charged"` |  |
 | `"endpoint_name"` |  |
 | `"endpoint_type"` |  |
-| `"items"` |  |
 | `"model_version"` |  |
 | `"outputs"` |  |
 | `"request_id"` |  |
@@ -348,7 +347,6 @@ Create an instance: `classify := client.Classify(nil)`
 | `credits_charged` | `float64` |  |
 | `endpoint_name` | `string` |  |
 | `endpoint_type` | `string` |  |
-| `items` | `[]any` |  |
 | `model_version` | `string` |  |
 | `outputs` | `[]any` |  |
 | `request_id` | `string` |  |
@@ -362,7 +360,6 @@ result, err := client.Classify(nil).Create(map[string]any{
     "credits_charged": 1,
     "endpoint_name": "example_endpoint_name",
     "endpoint_type": "example_endpoint_type",
-    "items": []any{},
     "model_version": "example_model_version",
     "outputs": []any{},
     "request_id": "example_request_id",

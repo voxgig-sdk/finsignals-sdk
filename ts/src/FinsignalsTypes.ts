@@ -11,7 +11,6 @@ export interface Classify {
   credits_charged: number
   endpoint_name: string
   endpoint_type: string
-  items: any[]
   model_version: string
   outputs: any[]
   request_id: string
@@ -25,7 +24,6 @@ export interface ClassifyCreateData {
   credits_charged: number
   endpoint_name: string
   endpoint_type: string
-  items: any[]
   model_version: string
   outputs: any[]
   request_id: string

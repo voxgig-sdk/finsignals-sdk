@@ -40,7 +40,7 @@ client = FinsignalsSDK()
 
 ```python
 # Create — returns the ENTITY (call data_get() for the record)
-created = client.Classify().create({"credits_charged": 1, "endpoint_name": "example_endpoint_name", "endpoint_type": "example_endpoint_type", "items": [], "model_version": "example_model_version", "outputs": [], "request_id": "example_request_id"})
+created = client.Classify().create({"credits_charged": 1, "endpoint_name": "example_endpoint_name", "endpoint_type": "example_endpoint_type", "model_version": "example_model_version", "outputs": [], "request_id": "example_request_id"})
 
 ```
 
@@ -247,7 +247,6 @@ On error, `ok` is `False` and `err` contains the error value.
 | `credits_charged` |  |
 | `endpoint_name` |  |
 | `endpoint_type` |  |
-| `items` |  |
 | `model_version` |  |
 | `outputs` |  |
 | `request_id` |  |
@@ -327,7 +326,6 @@ Create an instance: `classify = client.Classify()`
 | `credits_charged` | `float` |  |
 | `endpoint_name` | `str` |  |
 | `endpoint_type` | `str` |  |
-| `items` | `list` |  |
 | `model_version` | `str` |  |
 | `outputs` | `list` |  |
 | `request_id` | `str` |  |
@@ -341,7 +339,6 @@ classify = client.Classify().create({
     "credits_charged": 1,  # float
     "endpoint_name": "example_endpoint_name",  # str
     "endpoint_type": "example_endpoint_type",  # str
-    "items": [],  # list
     "model_version": "example_model_version",  # str
     "outputs": [],  # list
     "request_id": "example_request_id",  # str
@@ -574,6 +571,7 @@ Use `helpers.to_map()` to safely validate that a value is a dict.
 py/
 ├── finsignals_sdk.py         -- Main SDK module
 ├── config.py                    -- Configuration
+├── schema.py                    -- Generated option + entity specs
 ├── features.py                  -- Feature factory
 ├── core/                        -- Core types and context
 ├── entity/                      -- Entity implementations

@@ -34,7 +34,7 @@ client = FinsignalsSDK.new
 
 ```ruby
 # create returns the ENTITY — call data_get for the created Classify record.
-created = client.Classify.create({ "credits_charged" => 1, "endpoint_name" => "example_endpoint_name", "endpoint_type" => "example_endpoint_type", "items" => [], "model_version" => "example_model_version", "outputs" => [], "request_id" => "example_request_id" })
+created = client.Classify.create({ "credits_charged" => 1, "endpoint_name" => "example_endpoint_name", "endpoint_type" => "example_endpoint_type", "model_version" => "example_model_version", "outputs" => [], "request_id" => "example_request_id" })
 
 ```
 
@@ -241,7 +241,6 @@ returns a result `Hash` with these keys:
 | `credits_charged` |  |
 | `endpoint_name` |  |
 | `endpoint_type` |  |
-| `items` |  |
 | `model_version` |  |
 | `outputs` |  |
 | `request_id` |  |
@@ -321,7 +320,6 @@ Create an instance: `classify = client.Classify`
 | `credits_charged` | `Float` |  |
 | `endpoint_name` | `String` |  |
 | `endpoint_type` | `String` |  |
-| `items` | `Array` |  |
 | `model_version` | `String` |  |
 | `outputs` | `Array` |  |
 | `request_id` | `String` |  |
@@ -335,7 +333,6 @@ classify = client.Classify.create({
   "credits_charged" => 1, # Float
   "endpoint_name" => "example_endpoint_name", # String
   "endpoint_type" => "example_endpoint_type", # String
-  "items" => [], # Array
   "model_version" => "example_model_version", # String
   "outputs" => [], # Array
   "request_id" => "example_request_id", # String
@@ -571,6 +568,7 @@ Use `Helpers.to_map()` to safely validate that a value is a hash.
 rb/
 ├── Finsignals_sdk.rb       -- Main SDK module
 ├── config.rb                  -- Configuration
+├── schema.rb                  -- Generated option + entity specs
 ├── features.rb                -- Feature factory
 ├── core/                      -- Core types and context
 ├── entity/                    -- Entity implementations

@@ -2,45 +2,42 @@
   "existing": {
     "classify": {
       "CLASSIFY00": {
-        "body": "s6e",
-        "company_name": "s6f",
-        "credits_charged": 112,
-        "endpoint_name": "s71",
-        "endpoint_type": "s72",
-        "items": [],
-        "model_version": "s74",
+        "body": "s64",
+        "company_name": "s65",
+        "credits_charged": 102,
+        "endpoint_name": "s67",
+        "endpoint_type": "s68",
+        "model_version": "s69",
         "outputs": [],
         "request_id": "REQUEST01",
-        "ticker": "s77",
-        "title": "s78",
+        "ticker": "s6c",
+        "title": "s6d",
         "id": "CLASSIFY00"
       },
       "CLASSIFY01": {
-        "body": "sdc",
-        "company_name": "sdd",
-        "credits_charged": 222,
-        "endpoint_name": "sdf",
-        "endpoint_type": "se0",
-        "items": [],
-        "model_version": "se2",
+        "body": "sc8",
+        "company_name": "sc9",
+        "credits_charged": 202,
+        "endpoint_name": "scb",
+        "endpoint_type": "scc",
+        "model_version": "scd",
         "outputs": [],
         "request_id": "REQUEST01",
-        "ticker": "se5",
-        "title": "se6",
+        "ticker": "sd0",
+        "title": "sd1",
         "id": "CLASSIFY01"
       },
       "CLASSIFY02": {
-        "body": "s14a",
-        "company_name": "s14b",
-        "credits_charged": 332,
-        "endpoint_name": "s14d",
-        "endpoint_type": "s14e",
-        "items": [],
-        "model_version": "s150",
+        "body": "s12c",
+        "company_name": "s12d",
+        "credits_charged": 302,
+        "endpoint_name": "s12f",
+        "endpoint_type": "s130",
+        "model_version": "s131",
         "outputs": [],
         "request_id": "REQUEST01",
-        "ticker": "s153",
-        "title": "s154",
+        "ticker": "s134",
+        "title": "s135",
         "id": "CLASSIFY02"
       }
     }
@@ -48,17 +45,16 @@
   "new": {
     "classify": {
       "classify_ref01": {
-        "body": "s1b8",
-        "company_name": "s1b9",
-        "credits_charged": 442,
-        "endpoint_name": "s1bb",
-        "endpoint_type": "s1bc",
-        "items": [],
-        "model_version": "s1be",
+        "body": "s190",
+        "company_name": "s191",
+        "credits_charged": 402,
+        "endpoint_name": "s193",
+        "endpoint_type": "s194",
+        "model_version": "s195",
         "outputs": [],
         "request_id": "REQUEST01",
-        "ticker": "s1c1",
-        "title": "s1c2"
+        "ticker": "s198",
+        "title": "s199"
       }
     }
   },

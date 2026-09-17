@@ -31,7 +31,6 @@ const classify = await client.Classify().create({
   credits_charged: 1,
   endpoint_name: 'example',
   endpoint_type: 'example',
-  items: [],
   model_version: 'example',
   outputs: [],
   request_id: 'example',
@@ -113,12 +112,12 @@ local result, err = client:Health():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/finsignals-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/releases) |
-| Python | `voxgig-sdk-finsignals` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/releases) |
-| PHP | `voxgig-sdk/finsignals` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/releases) |
+| TypeScript | `@voxgig-sdk/finsignals-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/tags) |
+| Python | `voxgig-sdk-finsignals` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/tags) |
+| PHP | `voxgig-sdk/finsignals` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/finsignals-sdk/go` | `go get github.com/voxgig-sdk/finsignals-sdk/go@latest` |
-| Ruby | `voxgig-sdk-finsignals` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/releases) |
-| Lua | `voxgig-sdk-finsignals` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/releases) |
+| Ruby | `voxgig-sdk-finsignals` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/tags) |
+| Lua | `voxgig-sdk-finsignals` | publish pending — [install from git tag](https://github.com/voxgig-sdk/finsignals-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/finsignals-sdk/go-cli` | `go install github.com/voxgig-sdk/finsignals-sdk/go-cli/cmd/finsignals@latest` |
 | Go MCP server | `github.com/voxgig-sdk/finsignals-sdk/go-mcp` | `go get github.com/voxgig-sdk/finsignals-sdk/go-mcp@latest` |
 

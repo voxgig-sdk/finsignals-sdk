@@ -41,7 +41,6 @@ const created = await client.Classify().create({
   credits_charged: 1,
   endpoint_name: 'example_endpoint_name',
   endpoint_type: 'example_endpoint_type',
-  items: [],
   model_version: 'example_model_version',
   outputs: [],
   request_id: 'example_request_id',
@@ -303,7 +302,6 @@ The `prepare()` method returns:
 | `credits_charged` |  |
 | `endpoint_name` |  |
 | `endpoint_type` |  |
-| `items` |  |
 | `model_version` |  |
 | `outputs` |  |
 | `request_id` |  |
@@ -383,7 +381,6 @@ Create an instance: `const classify = client.Classify()`
 | `credits_charged` | `number` |  |
 | `endpoint_name` | `string` |  |
 | `endpoint_type` | `string` |  |
-| `items` | `any[]` |  |
 | `model_version` | `string` |  |
 | `outputs` | `any[]` |  |
 | `request_id` | `string` |  |
@@ -397,7 +394,6 @@ const classify = await client.Classify().create({
   credits_charged: 1,
   endpoint_name: 'example_endpoint_name',
   endpoint_type: 'example_endpoint_type',
-  items: [],
   model_version: 'example_model_version',
   outputs: [],
   request_id: 'example_request_id',

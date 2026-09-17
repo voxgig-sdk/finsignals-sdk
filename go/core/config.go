@@ -117,11 +117,6 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"name": "items",
-						"req": true,
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
 						"name": "model_version",
 						"req": true,
 						"type": "`$STRING`",

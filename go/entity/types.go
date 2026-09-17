@@ -19,7 +19,6 @@ type Classify struct {
 	CreditsCharged float64 `json:"credits_charged"`
 	EndpointName string `json:"endpoint_name"`
 	EndpointType string `json:"endpoint_type"`
-	Items []any `json:"items"`
 	ModelVersion string `json:"model_version"`
 	Outputs []any `json:"outputs"`
 	RequestId string `json:"request_id"`
@@ -34,7 +33,6 @@ type ClassifyCreateData struct {
 	CreditsCharged float64 `json:"credits_charged"`
 	EndpointName string `json:"endpoint_name"`
 	EndpointType string `json:"endpoint_type"`
-	Items []any `json:"items"`
 	ModelVersion string `json:"model_version"`
 	Outputs []any `json:"outputs"`
 	RequestId string `json:"request_id"`
