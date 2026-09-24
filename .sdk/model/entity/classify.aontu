@@ -1,0 +1,159 @@
+# Entity: classify
+
+main: kit: entity: classify: {
+
+  alias: field: {}
+
+  fields: {
+    body: {
+      h: "Body"
+      n: "body"
+      r: false
+      t: "`$STRING`"
+    }
+    company_name: {
+      h: "Company Name"
+      n: "company_name"
+      r: false
+      t: "`$STRING`"
+    }
+    credits_charged: {
+      h: "Credits Charged"
+      n: "credits_charged"
+      r: true
+      t: "`$NUMBER`"
+    }
+    endpoint_name: {
+      h: "Endpoint Name"
+      n: "endpoint_name"
+      r: true
+      t: "`$STRING`"
+    }
+    endpoint_type: {
+      h: "Endpoint Type"
+      n: "endpoint_type"
+      r: true
+      t: "`$STRING`"
+    }
+    model_version: {
+      h: "Model Version"
+      n: "model_version"
+      r: true
+      t: "`$STRING`"
+    }
+    outputs: {
+      h: "Outputs"
+      n: "outputs"
+      r: true
+      t: "`$ARRAY`"
+    }
+    request_id: {
+      h: "Request Id"
+      n: "request_id"
+      r: true
+      t: "`$STRING`"
+    }
+    ticker: {
+      h: "Ticker"
+      n: "ticker"
+      r: false
+      t: "`$STRING`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "classify"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /v1/classify"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "x_api_key"
+                or: "x_api_key"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/classify"
+          q: {
+            exist: [
+              "x_api_key"
+            ]
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "classify"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /v1/classify/batch"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "x_api_key"
+                or: "x_api_key"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/classify/batch"
+          q: {
+            "$action": "batch"
+            exist: [
+              "x_api_key"
+            ]
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "classify"
+            }
+            {
+              lit: "batch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,114 @@
+# Entity: rotation
+
+main: kit: entity: rotation: {
+
+  alias: field: {}
+
+  fields: {
+    credits_charged: {
+      h: "Credits Charged"
+      n: "credits_charged"
+      r: true
+      t: "`$NUMBER`"
+    }
+    endpoint_name: {
+      h: "Endpoint Name"
+      n: "endpoint_name"
+      r: true
+      t: "`$STRING`"
+    }
+    endpoint_type: {
+      h: "Endpoint Type"
+      n: "endpoint_type"
+      r: true
+      t: "`$STRING`"
+    }
+    generated_at: {
+      h: "Generated At"
+      n: "generated_at"
+      r: true
+      t: "`$STRING`"
+    }
+    model_version: {
+      h: "Model Version"
+      n: "model_version"
+      r: true
+      t: "`$STRING`"
+    }
+    outlook_1y: {
+      h: "Outlook 1y"
+      n: "outlook_1y"
+      r: true
+      sh: "Data for one analysis period (1y or 5y)."
+      t: "`$OBJECT`"
+    }
+    outlook_5y: {
+      h: "Outlook 5y"
+      n: "outlook_5y"
+      r: true
+      sh: "Data for one analysis period (1y or 5y)."
+      t: "`$OBJECT`"
+    }
+    request_id: {
+      h: "Request Id"
+      n: "request_id"
+      r: true
+      t: "`$STRING`"
+    }
+    trading_date: {
+      h: "Trading Date"
+      n: "trading_date"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "rotation"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v1/sector-rotation"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "x_api_key"
+                or: "x_api_key"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/sector-rotation"
+          q: {
+            exist: [
+              "x_api_key"
+            ]
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "sector-rotation"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

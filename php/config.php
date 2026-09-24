@@ -117,48 +117,58 @@ class FinsignalsConfig
           'fields' => [
             [
               'name' => 'body',
+              'title' => 'Body',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'company_name',
+              'title' => 'Company Name',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'credits_charged',
-              'req' => true,
+              'title' => 'Credits Charged',
               'type' => '`$NUMBER`',
+              'req' => true,
             ],
             [
               'name' => 'endpoint_name',
-              'req' => true,
+              'title' => 'Endpoint Name',
               'type' => '`$STRING`',
+              'req' => true,
             ],
             [
               'name' => 'endpoint_type',
-              'req' => true,
+              'title' => 'Endpoint Type',
               'type' => '`$STRING`',
+              'req' => true,
             ],
             [
               'name' => 'model_version',
-              'req' => true,
+              'title' => 'Model Version',
               'type' => '`$STRING`',
+              'req' => true,
             ],
             [
               'name' => 'outputs',
-              'req' => true,
+              'title' => 'Outputs',
               'type' => '`$ARRAY`',
+              'req' => true,
             ],
             [
               'name' => 'request_id',
-              'req' => true,
+              'title' => 'Request Id',
               'type' => '`$STRING`',
+              'req' => true,
             ],
             [
               'name' => 'ticker',
+              'title' => 'Ticker',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'title',
+              'title' => 'Title',
               'type' => '`$STRING`',
             ],
           ],
@@ -169,17 +179,6 @@ class FinsignalsConfig
               'name' => 'create',
               'points' => [
                 [
-                  'args' => [
-                    'header' => [
-                      [
-                        'kind' => 'header',
-                        'name' => 'x_api_key',
-                        'orig' => 'x_api_key',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/v1/classify',
@@ -191,32 +190,33 @@ class FinsignalsConfig
                       'lit' => 'classify',
                     ],
                   ],
+                  'parts' => [
+                    'v1',
+                    'classify',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'header' => [
+                      [
+                        'name' => 'x_api_key',
+                        'orig' => 'x_api_key',
+                        'type' => '`$STRING`',
+                        'kind' => 'header',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
                   'select' => [
                     'exist' => [
                       'x_api_key',
                     ],
                   ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'v1',
-                    'classify',
-                  ],
                 ],
                 [
-                  'args' => [
-                    'header' => [
-                      [
-                        'kind' => 'header',
-                        'name' => 'x_api_key',
-                        'orig' => 'x_api_key',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/v1/classify/batch',
@@ -231,20 +231,32 @@ class FinsignalsConfig
                       'lit' => 'batch',
                     ],
                   ],
+                  'parts' => [
+                    'v1',
+                    'classify',
+                    'batch',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'header' => [
+                      [
+                        'name' => 'x_api_key',
+                        'orig' => 'x_api_key',
+                        'type' => '`$STRING`',
+                        'kind' => 'header',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
                   'select' => [
                     '$action' => 'batch',
                     'exist' => [
                       'x_api_key',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'v1',
-                    'classify',
-                    'batch',
                   ],
                 ],
               ],
@@ -263,7 +275,6 @@ class FinsignalsConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/health',
@@ -275,18 +286,19 @@ class FinsignalsConfig
                       'lit' => 'health',
                     ],
                   ],
-                  'select' => [],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
                   'parts' => [
                     'api',
                     'health',
                   ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [],
+                  'select' => [],
                 ],
                 [
-                  'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/health',
@@ -298,15 +310,17 @@ class FinsignalsConfig
                       'lit' => 'health',
                     ],
                   ],
-                  'select' => [],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
                   'parts' => [
                     'v1',
                     'health',
                   ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [],
+                  'select' => [],
                 ],
               ],
             ],
@@ -324,17 +338,6 @@ class FinsignalsConfig
               'name' => 'create',
               'points' => [
                 [
-                  'args' => [
-                    'header' => [
-                      [
-                        'example' => '',
-                        'kind' => 'header',
-                        'name' => 'x_internal_token',
-                        'orig' => 'x_internal_token',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/internal/rotation/trigger',
@@ -349,19 +352,31 @@ class FinsignalsConfig
                       'lit' => 'trigger',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'x_internal_token',
-                    ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
                   'parts' => [
                     'internal',
                     'rotation',
                     'trigger',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'header' => [
+                      [
+                        'name' => 'x_internal_token',
+                        'orig' => 'x_internal_token',
+                        'type' => '`$STRING`',
+                        'kind' => 'header',
+                        'example' => '',
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'x_internal_token',
+                    ],
                   ],
                 ],
               ],
@@ -375,50 +390,59 @@ class FinsignalsConfig
           'fields' => [
             [
               'name' => 'credits_charged',
-              'req' => true,
+              'title' => 'Credits Charged',
               'type' => '`$NUMBER`',
+              'req' => true,
             ],
             [
               'name' => 'endpoint_name',
-              'req' => true,
+              'title' => 'Endpoint Name',
               'type' => '`$STRING`',
+              'req' => true,
             ],
             [
               'name' => 'endpoint_type',
-              'req' => true,
+              'title' => 'Endpoint Type',
               'type' => '`$STRING`',
+              'req' => true,
             ],
             [
               'name' => 'generated_at',
-              'req' => true,
+              'title' => 'Generated At',
               'type' => '`$STRING`',
+              'req' => true,
             ],
             [
               'name' => 'model_version',
-              'req' => true,
+              'title' => 'Model Version',
               'type' => '`$STRING`',
+              'req' => true,
             ],
             [
               'name' => 'outlook_1y',
+              'title' => 'Outlook 1y',
+              'type' => '`$OBJECT`',
               'req' => true,
               'short' => 'Data for one analysis period (1y or 5y).',
-              'type' => '`$OBJECT`',
             ],
             [
               'name' => 'outlook_5y',
+              'title' => 'Outlook 5y',
+              'type' => '`$OBJECT`',
               'req' => true,
               'short' => 'Data for one analysis period (1y or 5y).',
-              'type' => '`$OBJECT`',
             ],
             [
               'name' => 'request_id',
-              'req' => true,
+              'title' => 'Request Id',
               'type' => '`$STRING`',
+              'req' => true,
             ],
             [
               'name' => 'trading_date',
-              'req' => true,
+              'title' => 'Trading Date',
               'type' => '`$STRING`',
+              'req' => true,
             ],
           ],
           'name' => 'rotation',
@@ -428,17 +452,6 @@ class FinsignalsConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'header' => [
-                      [
-                        'kind' => 'header',
-                        'name' => 'x_api_key',
-                        'orig' => 'x_api_key',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/sector-rotation',
@@ -450,18 +463,30 @@ class FinsignalsConfig
                       'lit' => 'sector-rotation',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'x_api_key',
-                    ],
+                  'parts' => [
+                    'v1',
+                    'sector-rotation',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'v1',
-                    'sector-rotation',
+                  'args' => [
+                    'header' => [
+                      [
+                        'name' => 'x_api_key',
+                        'orig' => 'x_api_key',
+                        'type' => '`$STRING`',
+                        'kind' => 'header',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'x_api_key',
+                    ],
                   ],
                 ],
               ],
@@ -480,17 +505,6 @@ class FinsignalsConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'header' => [
-                      [
-                        'kind' => 'header',
-                        'name' => 'x_api_key',
-                        'orig' => 'x_api_key',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/plan',
@@ -502,32 +516,33 @@ class FinsignalsConfig
                       'lit' => 'plan',
                     ],
                   ],
+                  'parts' => [
+                    'v1',
+                    'plan',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'header' => [
+                      [
+                        'name' => 'x_api_key',
+                        'orig' => 'x_api_key',
+                        'type' => '`$STRING`',
+                        'kind' => 'header',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
                   'select' => [
                     'exist' => [
                       'x_api_key',
                     ],
                   ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'v1',
-                    'plan',
-                  ],
                 ],
                 [
-                  'args' => [
-                    'header' => [
-                      [
-                        'kind' => 'header',
-                        'name' => 'x_api_key',
-                        'orig' => 'x_api_key',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/usage',
@@ -539,18 +554,30 @@ class FinsignalsConfig
                       'lit' => 'usage',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'x_api_key',
-                    ],
+                  'parts' => [
+                    'v1',
+                    'usage',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'v1',
-                    'usage',
+                  'args' => [
+                    'header' => [
+                      [
+                        'name' => 'x_api_key',
+                        'orig' => 'x_api_key',
+                        'type' => '`$STRING`',
+                        'kind' => 'header',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'x_api_key',
+                    ],
                   ],
                 ],
               ],

@@ -95,48 +95,58 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "body",
+						"title": "Body",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "company_name",
+						"title": "Company Name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "credits_charged",
-						"req": true,
+						"title": "Credits Charged",
 						"type": "`$NUMBER`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "endpoint_name",
-						"req": true,
+						"title": "Endpoint Name",
 						"type": "`$STRING`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "endpoint_type",
-						"req": true,
+						"title": "Endpoint Type",
 						"type": "`$STRING`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "model_version",
-						"req": true,
+						"title": "Model Version",
 						"type": "`$STRING`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "outputs",
-						"req": true,
+						"title": "Outputs",
 						"type": "`$ARRAY`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "request_id",
-						"req": true,
+						"title": "Request Id",
 						"type": "`$STRING`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "ticker",
+						"title": "Ticker",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "title",
+						"title": "Title",
 						"type": "`$STRING`",
 					},
 				},
@@ -147,17 +157,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"header": []any{
-										map[string]any{
-											"kind": "header",
-											"name": "x_api_key",
-											"orig": "x_api_key",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/v1/classify",
@@ -169,32 +168,33 @@ func MakeConfig() map[string]any {
 										"lit": "classify",
 									},
 								},
+								"parts": []any{
+									"v1",
+									"classify",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"header": []any{
+										map[string]any{
+											"name": "x_api_key",
+											"orig": "x_api_key",
+											"type": "`$STRING`",
+											"kind": "header",
+											"reqd": true,
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"x_api_key",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"v1",
-									"classify",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"header": []any{
-										map[string]any{
-											"kind": "header",
-											"name": "x_api_key",
-											"orig": "x_api_key",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/v1/classify/batch",
@@ -209,20 +209,32 @@ func MakeConfig() map[string]any {
 										"lit": "batch",
 									},
 								},
+								"parts": []any{
+									"v1",
+									"classify",
+									"batch",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"header": []any{
+										map[string]any{
+											"name": "x_api_key",
+											"orig": "x_api_key",
+											"type": "`$STRING`",
+											"kind": "header",
+											"reqd": true,
+										},
+									},
+								},
 								"select": map[string]any{
 									"$action": "batch",
 									"exist": []any{
 										"x_api_key",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"v1",
-									"classify",
-									"batch",
 								},
 							},
 						},
@@ -241,7 +253,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/health",
@@ -253,18 +264,19 @@ func MakeConfig() map[string]any {
 										"lit": "health",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"api",
 									"health",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/health",
@@ -276,15 +288,17 @@ func MakeConfig() map[string]any {
 										"lit": "health",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"v1",
 									"health",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -302,17 +316,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"header": []any{
-										map[string]any{
-											"example": "",
-											"kind": "header",
-											"name": "x_internal_token",
-											"orig": "x_internal_token",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/internal/rotation/trigger",
@@ -327,19 +330,31 @@ func MakeConfig() map[string]any {
 										"lit": "trigger",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"x_internal_token",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"internal",
 									"rotation",
 									"trigger",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"header": []any{
+										map[string]any{
+											"name": "x_internal_token",
+											"orig": "x_internal_token",
+											"type": "`$STRING`",
+											"kind": "header",
+											"example": "",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"x_internal_token",
+									},
 								},
 							},
 						},
@@ -353,50 +368,59 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "credits_charged",
-						"req": true,
+						"title": "Credits Charged",
 						"type": "`$NUMBER`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "endpoint_name",
-						"req": true,
+						"title": "Endpoint Name",
 						"type": "`$STRING`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "endpoint_type",
-						"req": true,
+						"title": "Endpoint Type",
 						"type": "`$STRING`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "generated_at",
-						"req": true,
+						"title": "Generated At",
 						"type": "`$STRING`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "model_version",
-						"req": true,
+						"title": "Model Version",
 						"type": "`$STRING`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "outlook_1y",
+						"title": "Outlook 1y",
+						"type": "`$OBJECT`",
 						"req": true,
 						"short": "Data for one analysis period (1y or 5y).",
-						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "outlook_5y",
+						"title": "Outlook 5y",
+						"type": "`$OBJECT`",
 						"req": true,
 						"short": "Data for one analysis period (1y or 5y).",
-						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "request_id",
-						"req": true,
+						"title": "Request Id",
 						"type": "`$STRING`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "trading_date",
-						"req": true,
+						"title": "Trading Date",
 						"type": "`$STRING`",
+						"req": true,
 					},
 				},
 				"name": "rotation",
@@ -406,17 +430,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"header": []any{
-										map[string]any{
-											"kind": "header",
-											"name": "x_api_key",
-											"orig": "x_api_key",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/sector-rotation",
@@ -428,18 +441,30 @@ func MakeConfig() map[string]any {
 										"lit": "sector-rotation",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"x_api_key",
-									},
+								"parts": []any{
+									"v1",
+									"sector-rotation",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"v1",
-									"sector-rotation",
+								"args": map[string]any{
+									"header": []any{
+										map[string]any{
+											"name": "x_api_key",
+											"orig": "x_api_key",
+											"type": "`$STRING`",
+											"kind": "header",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"x_api_key",
+									},
 								},
 							},
 						},
@@ -458,17 +483,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"header": []any{
-										map[string]any{
-											"kind": "header",
-											"name": "x_api_key",
-											"orig": "x_api_key",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/plan",
@@ -480,32 +494,33 @@ func MakeConfig() map[string]any {
 										"lit": "plan",
 									},
 								},
+								"parts": []any{
+									"v1",
+									"plan",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"header": []any{
+										map[string]any{
+											"name": "x_api_key",
+											"orig": "x_api_key",
+											"type": "`$STRING`",
+											"kind": "header",
+											"reqd": true,
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"x_api_key",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"v1",
-									"plan",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"header": []any{
-										map[string]any{
-											"kind": "header",
-											"name": "x_api_key",
-											"orig": "x_api_key",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/usage",
@@ -517,18 +532,30 @@ func MakeConfig() map[string]any {
 										"lit": "usage",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"x_api_key",
-									},
+								"parts": []any{
+									"v1",
+									"usage",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"v1",
-									"usage",
+								"args": map[string]any{
+									"header": []any{
+										map[string]any{
+											"name": "x_api_key",
+											"orig": "x_api_key",
+											"type": "`$STRING`",
+											"kind": "header",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"x_api_key",
+									},
 								},
 							},
 						},

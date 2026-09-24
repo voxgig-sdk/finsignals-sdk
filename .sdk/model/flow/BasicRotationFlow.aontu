@@ -1,0 +1,28 @@
+# BasicRotationFlow
+
+main: kit: flow: BasicRotationFlow:
+{
+  entity: "rotation",
+  kind: "basic",
+  name: "BasicRotationFlow",
+  step: [
+    {
+      i: {
+        ref: "rotation_ref01",
+        srcdatavar: "rotation_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-rotation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRotationFlow"
+}

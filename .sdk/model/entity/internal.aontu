@@ -1,0 +1,62 @@
+# Entity: internal
+
+main: kit: entity: internal: {
+
+  alias: field: {}
+
+  name: "internal"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /internal/rotation/trigger"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: ""
+                k: "header"
+                n: "x_internal_token"
+                or: "x_internal_token"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/internal/rotation/trigger"
+          q: {
+            exist: [
+              "x_internal_token"
+            ]
+          }
+          s: [
+            {
+              lit: "internal"
+            }
+            {
+              lit: "rotation"
+            }
+            {
+              lit: "trigger"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

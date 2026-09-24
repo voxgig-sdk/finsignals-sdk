@@ -20,41 +20,13 @@
   "requests": {
     "GET /api/health": {
       "provenance": "operation-contract",
-      "contract": {
-        "operationId": "health_check_api_health_get",
-        "parameters": [],
-        "protocol": "http",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "description": "Successful Response"
-          }
-        },
-        "securitySource": "unspecified"
-      }
+      "version": 2,
+      "source": "openapi3"
     },
     "GET /v1/health": {
       "provenance": "operation-contract",
-      "contract": {
-        "operationId": "health_check_v1_health_get",
-        "parameters": [],
-        "protocol": "http",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "description": "Successful Response"
-          }
-        },
-        "securitySource": "unspecified"
-      }
+      "version": 2,
+      "source": "openapi3"
     }
   }
 }

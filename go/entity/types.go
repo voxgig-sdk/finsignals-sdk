@@ -1,7 +1,7 @@
 // Typed models for the Finsignals SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,16 +14,6 @@ import (
 
 // Classify is the typed data model for the classify entity.
 type Classify struct {
-	Body *string `json:"body,omitempty"`
-	CompanyName *string `json:"company_name,omitempty"`
-	CreditsCharged float64 `json:"credits_charged"`
-	EndpointName string `json:"endpoint_name"`
-	EndpointType string `json:"endpoint_type"`
-	ModelVersion string `json:"model_version"`
-	Outputs []any `json:"outputs"`
-	RequestId string `json:"request_id"`
-	Ticker *string `json:"ticker,omitempty"`
-	Title *string `json:"title,omitempty"`
 }
 
 // ClassifyCreateData is the typed request payload for Classify.CreateTyped.
@@ -58,15 +48,6 @@ type InternalCreateData struct {
 
 // Rotation is the typed data model for the rotation entity.
 type Rotation struct {
-	CreditsCharged float64 `json:"credits_charged"`
-	EndpointName string `json:"endpoint_name"`
-	EndpointType string `json:"endpoint_type"`
-	GeneratedAt string `json:"generated_at"`
-	ModelVersion string `json:"model_version"`
-	Outlook1y map[string]any `json:"outlook_1y"`
-	Outlook5y map[string]any `json:"outlook_5y"`
-	RequestId string `json:"request_id"`
-	TradingDate string `json:"trading_date"`
 }
 
 // RotationLoadMatch is the typed request payload for Rotation.LoadTyped.

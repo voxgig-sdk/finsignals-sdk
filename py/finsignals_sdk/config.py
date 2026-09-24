@@ -120,48 +120,58 @@ def make_config():
         "fields": [
           {
             "name": "body",
+            "title": "Body",
             "type": "`$STRING`",
           },
           {
             "name": "company_name",
+            "title": "Company Name",
             "type": "`$STRING`",
           },
           {
             "name": "credits_charged",
-            "req": True,
+            "title": "Credits Charged",
             "type": "`$NUMBER`",
+            "req": True,
           },
           {
             "name": "endpoint_name",
-            "req": True,
+            "title": "Endpoint Name",
             "type": "`$STRING`",
+            "req": True,
           },
           {
             "name": "endpoint_type",
-            "req": True,
+            "title": "Endpoint Type",
             "type": "`$STRING`",
+            "req": True,
           },
           {
             "name": "model_version",
-            "req": True,
+            "title": "Model Version",
             "type": "`$STRING`",
+            "req": True,
           },
           {
             "name": "outputs",
-            "req": True,
+            "title": "Outputs",
             "type": "`$ARRAY`",
+            "req": True,
           },
           {
             "name": "request_id",
-            "req": True,
+            "title": "Request Id",
             "type": "`$STRING`",
+            "req": True,
           },
           {
             "name": "ticker",
+            "title": "Ticker",
             "type": "`$STRING`",
           },
           {
             "name": "title",
+            "title": "Title",
             "type": "`$STRING`",
           },
         ],
@@ -172,17 +182,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {
-                  "header": [
-                    {
-                      "kind": "header",
-                      "name": "x_api_key",
-                      "orig": "x_api_key",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "POST",
                 "orig": "/v1/classify",
@@ -194,32 +193,33 @@ def make_config():
                     "lit": "classify",
                   },
                 ],
+                "parts": [
+                  "v1",
+                  "classify",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "header": [
+                    {
+                      "name": "x_api_key",
+                      "orig": "x_api_key",
+                      "type": "`$STRING`",
+                      "kind": "header",
+                      "reqd": True,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "x_api_key",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "v1",
-                  "classify",
-                ],
               },
               {
-                "args": {
-                  "header": [
-                    {
-                      "kind": "header",
-                      "name": "x_api_key",
-                      "orig": "x_api_key",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "POST",
                 "orig": "/v1/classify/batch",
@@ -234,21 +234,33 @@ def make_config():
                     "lit": "batch",
                   },
                 ],
+                "parts": [
+                  "v1",
+                  "classify",
+                  "batch",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "header": [
+                    {
+                      "name": "x_api_key",
+                      "orig": "x_api_key",
+                      "type": "`$STRING`",
+                      "kind": "header",
+                      "reqd": True,
+                    },
+                  ],
+                },
                 "select": {
                   "$action": "batch",
                   "exist": [
                     "x_api_key",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "v1",
-                  "classify",
-                  "batch",
-                ],
               },
             ],
           },
@@ -266,7 +278,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/health",
@@ -278,18 +289,19 @@ def make_config():
                     "lit": "health",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "api",
                   "health",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/health",
@@ -301,15 +313,17 @@ def make_config():
                     "lit": "health",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "v1",
                   "health",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -327,17 +341,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {
-                  "header": [
-                    {
-                      "example": "",
-                      "kind": "header",
-                      "name": "x_internal_token",
-                      "orig": "x_internal_token",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "POST",
                 "orig": "/internal/rotation/trigger",
@@ -352,20 +355,32 @@ def make_config():
                     "lit": "trigger",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "x_internal_token",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "internal",
                   "rotation",
                   "trigger",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "header": [
+                    {
+                      "name": "x_internal_token",
+                      "orig": "x_internal_token",
+                      "type": "`$STRING`",
+                      "kind": "header",
+                      "example": "",
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "x_internal_token",
+                  ],
+                },
               },
             ],
           },
@@ -378,50 +393,59 @@ def make_config():
         "fields": [
           {
             "name": "credits_charged",
-            "req": True,
+            "title": "Credits Charged",
             "type": "`$NUMBER`",
+            "req": True,
           },
           {
             "name": "endpoint_name",
-            "req": True,
+            "title": "Endpoint Name",
             "type": "`$STRING`",
+            "req": True,
           },
           {
             "name": "endpoint_type",
-            "req": True,
+            "title": "Endpoint Type",
             "type": "`$STRING`",
+            "req": True,
           },
           {
             "name": "generated_at",
-            "req": True,
+            "title": "Generated At",
             "type": "`$STRING`",
+            "req": True,
           },
           {
             "name": "model_version",
-            "req": True,
+            "title": "Model Version",
             "type": "`$STRING`",
+            "req": True,
           },
           {
             "name": "outlook_1y",
+            "title": "Outlook 1y",
+            "type": "`$OBJECT`",
             "req": True,
             "short": "Data for one analysis period (1y or 5y).",
-            "type": "`$OBJECT`",
           },
           {
             "name": "outlook_5y",
+            "title": "Outlook 5y",
+            "type": "`$OBJECT`",
             "req": True,
             "short": "Data for one analysis period (1y or 5y).",
-            "type": "`$OBJECT`",
           },
           {
             "name": "request_id",
-            "req": True,
+            "title": "Request Id",
             "type": "`$STRING`",
+            "req": True,
           },
           {
             "name": "trading_date",
-            "req": True,
+            "title": "Trading Date",
             "type": "`$STRING`",
+            "req": True,
           },
         ],
         "name": "rotation",
@@ -431,17 +455,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "header": [
-                    {
-                      "kind": "header",
-                      "name": "x_api_key",
-                      "orig": "x_api_key",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/sector-rotation",
@@ -453,19 +466,31 @@ def make_config():
                     "lit": "sector-rotation",
                   },
                 ],
+                "parts": [
+                  "v1",
+                  "sector-rotation",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "header": [
+                    {
+                      "name": "x_api_key",
+                      "orig": "x_api_key",
+                      "type": "`$STRING`",
+                      "kind": "header",
+                      "reqd": True,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "x_api_key",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "v1",
-                  "sector-rotation",
-                ],
               },
             ],
           },
@@ -483,17 +508,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "header": [
-                    {
-                      "kind": "header",
-                      "name": "x_api_key",
-                      "orig": "x_api_key",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/plan",
@@ -505,32 +519,33 @@ def make_config():
                     "lit": "plan",
                   },
                 ],
+                "parts": [
+                  "v1",
+                  "plan",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "header": [
+                    {
+                      "name": "x_api_key",
+                      "orig": "x_api_key",
+                      "type": "`$STRING`",
+                      "kind": "header",
+                      "reqd": True,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "x_api_key",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "v1",
-                  "plan",
-                ],
               },
               {
-                "args": {
-                  "header": [
-                    {
-                      "kind": "header",
-                      "name": "x_api_key",
-                      "orig": "x_api_key",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/usage",
@@ -542,19 +557,31 @@ def make_config():
                     "lit": "usage",
                   },
                 ],
+                "parts": [
+                  "v1",
+                  "usage",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "header": [
+                    {
+                      "name": "x_api_key",
+                      "orig": "x_api_key",
+                      "type": "`$STRING`",
+                      "kind": "header",
+                      "reqd": True,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "x_api_key",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "v1",
-                  "usage",
-                ],
               },
             ],
           },
